@@ -2,7 +2,7 @@
 REM Double-click to dump the scheduled-task status to schedule_diag.txt
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
   "$ErrorActionPreference='SilentlyContinue';" ^
-  "$out='C:\work\LitterRobot_Logs\schedule_diag.txt';" ^
+  "$out='%~dp0schedule_diag.txt';" ^
   "$t=Get-ScheduledTask -TaskName 'LitterRobotHourly';" ^
   "if(-not $t){ 'TASK NOT FOUND - it was never created (the .bat may not have been run).' | Out-File $out; Start-Process notepad $out; exit }" ^
   "$i=Get-ScheduledTaskInfo -TaskName 'LitterRobotHourly';" ^

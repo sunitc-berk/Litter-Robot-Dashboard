@@ -1,0 +1,3 @@
+# Python dependencies for the Litter-Robot monitor.
+# Install into a virtual environment:  pip install -r requirements.txt
+pylitterbot

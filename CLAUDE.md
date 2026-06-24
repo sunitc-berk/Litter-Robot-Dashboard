@@ -12,19 +12,23 @@ everything runs from one Python script that appends to CSVs and rewrites an HTML
 ## Commands
 
 ```bash
-# Run the monitor (fetch → append CSVs → rebuild dashboard). Run from repo root.
-python code/litter_robot_v1.py --log-dir live_logs
+# One-time setup: create the virtual environment and install dependencies
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 
-# Skip auto-install of pylitterbot (exit with instructions if missing instead)
-python code/litter_robot_v1.py --no-install --log-dir live_logs
+# Run the monitor (fetch → append CSVs → rebuild dashboard). Run from repo root
+# with the virtual environment active.
+python code/litter_robot_v1.py --log-dir live_logs
 
 # Also capture the console report
 python code/litter_robot_v1.py --log-dir live_logs > report.txt
 ```
 
-- **Dependencies**: the only third party package is `pylitterbot`. There is no
-  `requirements.txt`; the script auto-installs it on first run (see `ensure_dependencies`,
-  with PEP 668 `--break-system-packages` fallbacks). Install manually with `pip install pylitterbot`.
+- **Dependencies**: the only third-party package is `pylitterbot`, declared in
+  `requirements.txt` and installed into a virtual environment (`.venv/`, gitignored).
+  The script does **not** auto-install — `check_dependencies()` exits with venv setup
+  instructions if `pylitterbot` is missing.
 - **Credentials**: read from `WHISKER_USERNAME` / `WHISKER_PASSWORD` env vars (falls back to
   an interactive prompt only when a TTY is attached; unattended runs without the vars exit
   immediately). Never hard-code these.
@@ -54,9 +58,9 @@ historical exports all from the same `--log-dir`. In this repo those are split a
 `live_logs/`, `historical_exports/`, and `dashboards/`. So:
 
 - The organized folder layout in the repo is for human/GitHub readability.
-- The actual running deployment (`C:\work\LitterRobot_Logs`, hard-coded in
-  `schedule_litter_robot.ps1`) is **flatter** — template, logs, exports, and output all in
-  directories the script can see together.
+- The actual running deployment is **flatter** — template, logs, exports, and output all in
+  directories the script can see together. `schedule_litter_robot.ps1` finds this project
+  root automatically from its own location (override with `-WorkDir`).
 - If you run `--log-dir live_logs` against this repo as-is, dashboard generation is **skipped**
   because the template lives in `dashboards/`, not `live_logs/`. Account for this before
   assuming the dashboard regenerates locally.
@@ -105,5 +109,6 @@ dashboard, edit the template — not the generated output, which is overwritten 
 - **`_to_delete/`** holds the deprecated predecessors (`litter_robot_monitor.py`, the Jupyter
   notebook, a `broken_git/` directory). It is tracked in git but is legacy; do not build on it.
 - **Scheduling is Windows-only** (`code/*.ps1` / `*.bat` register a `LitterRobotHourly` Task
-  Scheduler job). The Python script itself is cross-platform; only the scheduling wrappers and
-  the hard-coded paths inside `schedule_litter_robot.ps1` are Windows/deployment-specific.
+  Scheduler job). The Python script itself is cross-platform; only the scheduling wrappers are
+  Windows-specific. `schedule_litter_robot.ps1` auto-detects the project root from its own
+  location (override with `-WorkDir`), so it no longer hard-codes a deployment path.

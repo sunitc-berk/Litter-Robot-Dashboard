@@ -20,6 +20,9 @@ Thumbs.db
 .vscode/
 .ipynb_checkpoints/
 
+# Claude Code local session artifacts (decision logs, etc.)
+.claude/
+
 # Transient diagnostic / report output
 schedule_diag.txt
 report.txt
