@@ -1,0 +1,393 @@
+Robot,Activity,Timestamp,Value
+LR4-2,Cat Detected,2026-06-16 16:35,-
+LR4-1,Clean Cycles,2026-06-16 16:36,2302
+LR4-1,Clean Cycle In Progress,2026-06-16 16:36,-
+LR4-2,Clean Cycles,2026-06-16 16:36,1959
+LR4-2,Clean Cycle In Progress,2026-06-16 16:36,-
+LR4-1,DFILevelPercent,2026-06-16 16:37,-
+LR4-2,DFILevelPercent,2026-06-16 16:37,-
+LR4-1,Clean Cycle Complete,2026-06-16 16:39,-
+LR4-2,Clean Cycle Complete,2026-06-16 16:39,-
+LR4-1,Cat Detected,2026-06-16 16:47,-
+LR4-1,Pet Weight Recorded,2026-06-16 16:48,11.39 lbs
+LR4-1,Clean Cycles,2026-06-16 16:55,2303
+LR4-1,Clean Cycle In Progress,2026-06-16 16:55,-
+LR4-1,DFILevelPercent,2026-06-16 16:56,-
+LR4-1,Clean Cycle Complete,2026-06-16 16:57,-
+LR4-2,Cat Detected,2026-06-16 19:24,-
+LR4-2,Pet Weight Recorded,2026-06-16 19:25,16.2 lbs
+LR4-2,Clean Cycle In Progress,2026-06-16 19:32,-
+LR4-2,Clean Cycles,2026-06-16 19:32,1960
+LR4-2,DFILevelPercent,2026-06-16 19:33,-
+LR4-2,Clean Cycle Complete,2026-06-16 19:34,-
+LR4-2,Cat Detected,2026-06-16 22:39,-
+LR4-2,Pet Weight Recorded,2026-06-16 22:40,18.94 lbs
+LR4-2,Clean Cycles,2026-06-16 22:48,1961
+LR4-2,Clean Cycle In Progress,2026-06-16 22:48,-
+LR4-2,DFILevelPercent,2026-06-16 22:49,-
+LR4-2,Clean Cycle Complete,2026-06-16 22:50,-
+LR4-2,Cat Detected,2026-06-17 01:49,-
+LR4-2,Pet Weight Recorded,2026-06-17 01:50,18.56 lbs
+LR4-2,Clean Cycles,2026-06-17 01:57,1962
+LR4-2,Clean Cycle In Progress,2026-06-17 01:57,-
+LR4-2,DFILevelPercent,2026-06-17 01:58,-
+LR4-2,Clean Cycle Complete,2026-06-17 01:59,-
+LR4-2,Cat Detected,2026-06-17 03:50,-
+LR4-2,Pet Weight Recorded,2026-06-17 03:51,11.38 lbs
+LR4-2,Clean Cycle In Progress,2026-06-17 03:58,-
+LR4-2,Clean Cycles,2026-06-17 03:58,1963
+LR4-2,DFILevelPercent,2026-06-17 03:59,-
+LR4-2,Clean Cycle Complete,2026-06-17 04:00,-
+LR4-2,Cat Detected,2026-06-17 05:45,-
+LR4-2,Pet Weight Recorded,2026-06-17 05:46,11.29 lbs
+LR4-2,Clean Cycle In Progress,2026-06-17 05:53,-
+LR4-2,Clean Cycles,2026-06-17 05:53,1964
+LR4-2,DFILevelPercent,2026-06-17 05:54,-
+LR4-2,Clean Cycle Complete,2026-06-17 05:56,-
+LR4-1,Cat Detected,2026-06-17 06:28,-
+LR4-2,Cat Detected,2026-06-17 06:28,-
+LR4-1,Pet Weight Recorded,2026-06-17 06:29,16.14 lbs
+LR4-2,Clean Cycle In Progress,2026-06-17 06:35,-
+LR4-2,Clean Cycles,2026-06-17 06:35,1965
+LR4-1,Clean Cycle In Progress,2026-06-17 06:36,-
+LR4-1,Clean Cycles,2026-06-17 06:36,2304
+LR4-2,DFILevelPercent,2026-06-17 06:36,-
+LR4-1,DFILevelPercent,2026-06-17 06:37,-
+LR4-2,Clean Cycle Complete,2026-06-17 06:37,-
+LR4-1,Clean Cycle Complete,2026-06-17 06:38,-
+LR4-1,Cat Detected,2026-06-17 07:19,-
+LR4-1,Pet Weight Recorded,2026-06-17 07:20,16 lbs
+LR4-1,Clean Cycles,2026-06-17 07:27,2305
+LR4-1,Clean Cycle In Progress,2026-06-17 07:27,-
+LR4-1,DFILevelPercent,2026-06-17 07:28,-
+LR4-1,Clean Cycle Complete,2026-06-17 07:30,-
+LR4-2,Cat Detected,2026-06-17 08:32,-
+LR4-2,Pet Weight Recorded,2026-06-17 08:34,11.56 lbs
+LR4-2,Clean Cycle In Progress,2026-06-17 08:41,-
+LR4-2,Clean Cycles,2026-06-17 08:41,1966
+LR4-2,DFILevelPercent,2026-06-17 08:42,-
+LR4-2,Clean Cycle Complete,2026-06-17 08:44,-
+LR4-1,Cat Detected,2026-06-17 17:13,-
+LR4-1,Pet Weight Recorded,2026-06-17 17:15,11.44 lbs
+LR4-1,Clean Cycle In Progress,2026-06-17 17:22,-
+LR4-1,Clean Cycles,2026-06-17 17:22,2306
+LR4-1,DFILevelPercent,2026-06-17 17:23,-
+LR4-1,Clean Cycle Complete,2026-06-17 17:24,-
+LR4-1,Cat Detected,2026-06-17 19:14,-
+LR4-1,Pet Weight Recorded,2026-06-17 19:15,16.18 lbs
+LR4-1,Clean Cycles,2026-06-17 19:22,2307
+LR4-1,Clean Cycle In Progress,2026-06-17 19:22,-
+LR4-1,DFILevelPercent,2026-06-17 19:23,-
+LR4-1,Clean Cycle Complete,2026-06-17 19:24,-
+LR4-1,Cat Detected,2026-06-17 19:26,-
+LR4-1,Pet Weight Recorded,2026-06-17 19:28,11.42 lbs
+LR4-1,Clean Cycles,2026-06-17 19:35,2308
+LR4-1,Clean Cycle In Progress,2026-06-17 19:35,-
+LR4-1,DFILevelPercent,2026-06-17 19:36,-
+LR4-1,Clean Cycle Complete,2026-06-17 19:37,-
+LR4-2,Cat Detected,2026-06-17 21:59,-
+LR4-2,Pet Weight Recorded,2026-06-17 22:01,18.97 lbs
+LR4-2,Clean Cycles,2026-06-17 22:08,1967
+LR4-2,Clean Cycle In Progress,2026-06-17 22:08,-
+LR4-2,DFILevelPercent,2026-06-17 22:09,-
+LR4-2,Clean Cycle Complete,2026-06-17 22:10,-
+LR4-2,Cat Detected,2026-06-18 01:41,-
+LR4-2,Pet Weight Recorded,2026-06-18 01:42,19.88 lbs
+LR4-2,Clean Cycle In Progress,2026-06-18 01:49,-
+LR4-2,Clean Cycles,2026-06-18 01:49,1968
+LR4-2,DFILevelPercent,2026-06-18 01:50,-
+LR4-2,Clean Cycle Complete,2026-06-18 01:52,-
+LR4-1,Cat Detected,2026-06-18 04:41,-
+LR4-1,Pet Weight Recorded,2026-06-18 04:42,11.45 lbs
+LR4-1,Clean Cycles,2026-06-18 04:49,2309
+LR4-1,Clean Cycle In Progress,2026-06-18 04:49,-
+LR4-1,DFILevelPercent,2026-06-18 04:51,-
+LR4-1,Clean Cycle Complete,2026-06-18 04:52,-
+LR4-1,Cat Detected,2026-06-18 06:41,-
+LR4-1,Pet Weight Recorded,2026-06-18 06:42,16.12 lbs
+LR4-2,Cat Detected,2026-06-18 06:42,-
+LR4-2,Pet Weight Recorded,2026-06-18 06:43,15.88 lbs
+LR4-1,Clean Cycles,2026-06-18 06:49,2310
+LR4-1,Clean Cycle In Progress,2026-06-18 06:49,-
+LR4-1,DFILevelPercent,2026-06-18 06:50,-
+LR4-2,Clean Cycle In Progress,2026-06-18 06:50,-
+LR4-2,Clean Cycles,2026-06-18 06:50,1969
+LR4-1,Clean Cycle Complete,2026-06-18 06:51,-
+LR4-2,DFILevelPercent,2026-06-18 06:51,-
+LR4-2,Clean Cycle Complete,2026-06-18 06:52,-
+LR4-1,Cat Detected,2026-06-18 17:24,-
+LR4-1,Pet Weight Recorded,2026-06-18 17:26,11.65 lbs
+LR4-2,Cat Detected,2026-06-18 17:26,-
+LR4-2,Pet Weight Recorded,2026-06-18 17:27,11.25 lbs
+LR4-1,Clean Cycle In Progress,2026-06-18 17:33,-
+LR4-1,Clean Cycles,2026-06-18 17:33,2311
+LR4-1,DFILevelPercent,2026-06-18 17:34,-
+LR4-2,Clean Cycle In Progress,2026-06-18 17:34,-
+LR4-2,Clean Cycles,2026-06-18 17:34,1970
+LR4-1,Clean Cycle Complete,2026-06-18 17:35,-
+LR4-2,DFILevelPercent,2026-06-18 17:35,-
+LR4-2,Clean Cycle Complete,2026-06-18 17:36,-
+LR4-2,Cat Detected,2026-06-19 00:36,-
+LR4-2,Pet Weight Recorded,2026-06-19 00:37,18.99 lbs
+LR4-2,Clean Cycle In Progress,2026-06-19 00:45,-
+LR4-2,Clean Cycles,2026-06-19 00:45,1971
+LR4-2,DFILevelPercent,2026-06-19 00:46,-
+LR4-2,Cat Sensor Interrupted,2026-06-19 00:46,-
+LR4-2,Clean Cycle Complete,2026-06-19 00:47,-
+LR4-1,Cat Detected,2026-06-19 03:23,-
+LR4-1,Pet Weight Recorded,2026-06-19 03:24,16.21 lbs
+LR4-1,Clean Cycle In Progress,2026-06-19 03:31,-
+LR4-1,Clean Cycles,2026-06-19 03:31,2312
+LR4-1,DFILevelPercent,2026-06-19 03:32,-
+LR4-1,Clean Cycle Complete,2026-06-19 03:33,-
+LR4-2,Pet Weight Recorded,2026-06-19 04:44,18.47 lbs
+LR4-2,Cat Detected,2026-06-19 04:44,-
+LR4-2,Clean Cycles,2026-06-19 04:51,1972
+LR4-2,Clean Cycle In Progress,2026-06-19 04:51,-
+LR4-2,DFILevelPercent,2026-06-19 04:53,-
+LR4-2,Clean Cycle Complete,2026-06-19 04:54,-
+LR4-1,Cat Detected,2026-06-19 06:37,-
+LR4-1,Pet Weight Recorded,2026-06-19 06:38,11.56 lbs
+LR4-1,Clean Cycles,2026-06-19 06:45,2313
+LR4-1,Clean Cycle In Progress,2026-06-19 06:45,-
+LR4-1,DFILevelPercent,2026-06-19 06:46,-
+LR4-1,Clean Cycle Complete,2026-06-19 06:47,-
+LR4-1,Pet Weight Recorded,2026-06-19 06:55,11.47 lbs
+LR4-1,Cat Detected,2026-06-19 06:55,-
+LR4-2,Cat Detected,2026-06-19 06:56,-
+LR4-2,Pet Weight Recorded,2026-06-19 06:57,11.15 lbs
+LR4-1,Pet Weight Recorded,2026-06-19 07:03,16.32 lbs
+LR4-2,Clean Cycle In Progress,2026-06-19 07:09,-
+LR4-2,Clean Cycles,2026-06-19 07:09,1973
+LR4-1,Clean Cycles,2026-06-19 07:10,2314
+LR4-1,Clean Cycle In Progress,2026-06-19 07:10,-
+LR4-2,DFILevelPercent,2026-06-19 07:10,-
+LR4-1,DFILevelPercent,2026-06-19 07:11,-
+LR4-2,Clean Cycle Complete,2026-06-19 07:11,-
+LR4-1,Clean Cycle Complete,2026-06-19 07:12,-
+LR4-1,Clean Cycles,2026-06-19 13:32,2315
+LR4-1,Clean Cycle In Progress,2026-06-19 13:32,-
+LR4-1,DFILevelPercent,2026-06-19 13:33,-
+LR4-1,Clean Cycle Complete,2026-06-19 13:34,-
+LR4-1,Cat Detected,2026-06-19 18:27,-
+LR4-1,Pet Weight Recorded,2026-06-19 18:28,16.26 lbs
+LR4-1,Clean Cycle In Progress,2026-06-19 18:35,-
+LR4-1,Clean Cycles,2026-06-19 18:35,2316
+LR4-1,DFILevelPercent,2026-06-19 18:36,-
+LR4-1,Clean Cycle Complete,2026-06-19 18:37,-
+LR4-2,Cat Detected,2026-06-19 19:06,-
+LR4-2,Pet Weight Recorded,2026-06-19 19:07,11.42 lbs
+LR4-2,Clean Cycle In Progress,2026-06-19 19:14,-
+LR4-2,Clean Cycles,2026-06-19 19:14,1974
+LR4-2,DFILevelPercent,2026-06-19 19:15,-
+LR4-2,Clean Cycle Complete,2026-06-19 19:16,-
+LR4-2,Cat Detected,2026-06-19 21:59,-
+LR4-2,Pet Weight Recorded,2026-06-19 22:00,18.89 lbs
+LR4-2,Clean Cycle In Progress,2026-06-19 22:07,-
+LR4-2,Clean Cycles,2026-06-19 22:07,1975
+LR4-2,DFILevelPercent,2026-06-19 22:09,-
+LR4-2,Clean Cycle Complete,2026-06-19 22:10,-
+LR4-1,Cat Detected,2026-06-20 04:55,-
+LR4-1,Pet Weight Recorded,2026-06-20 04:57,11.59 lbs
+LR4-1,Clean Cycle In Progress,2026-06-20 05:05,-
+LR4-1,Clean Cycles,2026-06-20 05:05,2317
+LR4-1,DFILevelPercent,2026-06-20 05:06,-
+LR4-1,Clean Cycle Complete,2026-06-20 05:07,-
+LR4-2,Cat Detected,2026-06-20 06:21,-
+LR4-1,Cat Detected,2026-06-20 06:22,-
+LR4-2,Pet Weight Recorded,2026-06-20 06:22,16.05 lbs
+LR4-1,Pet Weight Recorded,2026-06-20 06:23,16.05 lbs
+LR4-2,Clean Cycle In Progress,2026-06-20 06:29,-
+LR4-2,Clean Cycles,2026-06-20 06:29,1976
+LR4-1,Clean Cycle In Progress,2026-06-20 06:30,-
+LR4-1,Clean Cycles,2026-06-20 06:30,2318
+LR4-2,DFILevelPercent,2026-06-20 06:30,-
+LR4-1,DFILevelPercent,2026-06-20 06:31,-
+LR4-2,Clean Cycle Complete,2026-06-20 06:31,-
+LR4-1,Clean Cycle Complete,2026-06-20 06:32,-
+LR4-2,Cat Detected,2026-06-20 09:09,-
+LR4-2,Pet Weight Recorded,2026-06-20 09:10,19.77 lbs
+LR4-2,Clean Cycle In Progress,2026-06-20 09:17,-
+LR4-2,Clean Cycles,2026-06-20 09:17,1977
+LR4-2,DFILevelPercent,2026-06-20 09:18,-
+LR4-2,Clean Cycle Complete,2026-06-20 09:19,-
+LR4-1,Cat Detected,2026-06-20 18:28,-
+LR4-1,Clean Cycles,2026-06-20 18:41,2319
+LR4-1,Clean Cycle In Progress,2026-06-20 18:41,-
+LR4-2,Clean Cycles,2026-06-20 18:41,1978
+LR4-2,Clean Cycle In Progress,2026-06-20 18:41,-
+LR4-1,DFILevelPercent,2026-06-20 18:42,-
+LR4-2,Cat Sensor Interrupted,2026-06-20 18:42,-
+LR4-1,Clean Cycle Complete,2026-06-20 18:43,-
+LR4-2,Clean Cycle Complete,2026-06-20 18:43,-
+LR4-1,Cat Detected,2026-06-20 19:28,-
+LR4-1,Pet Weight Recorded,2026-06-20 19:29,16.21 lbs
+LR4-2,Cat Detected,2026-06-20 19:29,-
+LR4-2,Pet Weight Recorded,2026-06-20 19:30,15.98 lbs
+LR4-1,Clean Cycles,2026-06-20 19:36,2320
+LR4-1,Clean Cycle In Progress,2026-06-20 19:36,-
+LR4-1,DFILevelPercent,2026-06-20 19:37,-
+LR4-2,Clean Cycle In Progress,2026-06-20 19:37,-
+LR4-2,Clean Cycles,2026-06-20 19:37,1979
+LR4-1,Clean Cycle Complete,2026-06-20 19:38,-
+LR4-2,DFILevelPercent,2026-06-20 19:38,-
+LR4-2,Clean Cycle Complete,2026-06-20 19:40,-
+LR4-1,Cat Detected,2026-06-20 22:56,-
+LR4-1,Pet Weight Recorded,2026-06-20 22:57,19.35 lbs
+LR4-1,Clean Cycle In Progress,2026-06-20 23:04,-
+LR4-1,Clean Cycles,2026-06-20 23:04,2321
+LR4-1,DFILevelPercent,2026-06-20 23:05,-
+LR4-1,Clean Cycle Complete,2026-06-20 23:06,-
+LR4-1,Cat Detected,2026-06-21 05:19,-
+LR4-1,Pet Weight Recorded,2026-06-21 05:20,11.53 lbs
+LR4-1,Clean Cycle In Progress,2026-06-21 05:27,-
+LR4-1,Clean Cycles,2026-06-21 05:27,2322
+LR4-1,DFILevelPercent,2026-06-21 05:28,-
+LR4-1,Clean Cycle Complete,2026-06-21 05:29,-
+LR4-1,Cat Detected,2026-06-21 05:39,-
+LR4-1,Pet Weight Recorded,2026-06-21 05:40,11.51 lbs
+LR4-1,Clean Cycles,2026-06-21 05:47,2323
+LR4-1,Clean Cycle In Progress,2026-06-21 05:47,-
+LR4-1,DFILevelPercent,2026-06-21 05:48,-
+LR4-1,Clean Cycle Complete,2026-06-21 05:49,-
+LR4-2,Cat Detected,2026-06-21 09:27,-
+LR4-2,Pet Weight Recorded,2026-06-21 09:28,16.08 lbs
+LR4-1,Cat Detected,2026-06-21 09:30,-
+LR4-1,Pet Weight Recorded,2026-06-21 09:31,11.22 lbs
+LR4-2,Clean Cycle In Progress,2026-06-21 09:37,-
+LR4-2,Clean Cycles,2026-06-21 09:37,1980
+LR4-1,Clean Cycle In Progress,2026-06-21 09:38,-
+LR4-1,Clean Cycles,2026-06-21 09:38,2324
+LR4-2,DFILevelPercent,2026-06-21 09:38,-
+LR4-1,DFILevelPercent,2026-06-21 09:39,-
+LR4-2,Clean Cycle Complete,2026-06-21 09:39,-
+LR4-1,Clean Cycle Complete,2026-06-21 09:40,-
+LR4-2,Cat Detected,2026-06-21 17:00,-
+LR4-2,Pet Weight Recorded,2026-06-21 17:01,18.93 lbs
+LR4-2,Clean Cycle In Progress,2026-06-21 17:08,-
+LR4-2,Clean Cycles,2026-06-21 17:08,1981
+LR4-2,DFILevelPercent,2026-06-21 17:09,-
+LR4-2,Clean Cycle Complete,2026-06-21 17:10,-
+LR4-1,Cat Detected,2026-06-21 17:27,-
+LR4-1,Pet Weight Recorded,2026-06-21 17:29,11.62 lbs
+LR4-1,Clean Cycle In Progress,2026-06-21 17:36,-
+LR4-1,Clean Cycles,2026-06-21 17:36,2325
+LR4-1,DFILevelPercent,2026-06-21 17:37,-
+LR4-1,Clean Cycle Complete,2026-06-21 17:38,-
+LR4-2,Cat Detected,2026-06-21 19:53,-
+LR4-2,Pet Weight Recorded,2026-06-21 19:54,18.77 lbs
+LR4-2,Clean Cycle In Progress,2026-06-21 20:01,-
+LR4-2,Clean Cycles,2026-06-21 20:01,1982
+LR4-2,DFILevelPercent,2026-06-21 20:02,-
+LR4-2,Clean Cycle Complete,2026-06-21 20:03,-
+LR4-1,Cat Detected,2026-06-22 03:17,-
+LR4-1,Pet Weight Recorded,2026-06-22 03:18,16.3 lbs
+LR4-2,Cat Detected,2026-06-22 03:18,-
+LR4-2,Pet Weight Recorded,2026-06-22 03:19,15.99 lbs
+LR4-1,Clean Cycle In Progress,2026-06-22 03:25,-
+LR4-1,Clean Cycles,2026-06-22 03:25,2326
+LR4-1,DFILevelPercent,2026-06-22 03:26,-
+LR4-2,Clean Cycle In Progress,2026-06-22 03:26,-
+LR4-2,Clean Cycles,2026-06-22 03:26,1983
+LR4-1,Clean Cycle Complete,2026-06-22 03:27,-
+LR4-2,DFILevelPercent,2026-06-22 03:27,-
+LR4-2,Clean Cycle Complete,2026-06-22 03:28,-
+LR4-1,Cat Detected,2026-06-22 06:42,-
+LR4-1,Pet Weight Recorded,2026-06-22 06:43,11.45 lbs
+LR4-1,Pet Weight Recorded,2026-06-22 06:50,11.45 lbs
+LR4-1,Clean Cycles,2026-06-22 06:57,2327
+LR4-1,Clean Cycle In Progress,2026-06-22 06:57,-
+LR4-1,DFILevelPercent,2026-06-22 06:58,-
+LR4-1,Clean Cycle Complete,2026-06-22 06:59,-
+LR4-2,Cat Detected,2026-06-22 09:47,-
+LR4-2,Pet Weight Recorded,2026-06-22 09:48,18.89 lbs
+LR4-2,Clean Cycle In Progress,2026-06-22 09:55,-
+LR4-2,Clean Cycles,2026-06-22 09:55,1984
+LR4-2,DFILevelPercent,2026-06-22 09:56,-
+LR4-2,Clean Cycle Complete,2026-06-22 09:57,-
+LR4-1,Cat Detected,2026-06-22 10:51,-
+LR4-2,Pet Weight Recorded,2026-06-22 10:51,16.13 lbs
+LR4-2,Cat Detected,2026-06-22 10:51,-
+LR4-1,Pet Weight Recorded,2026-06-22 10:52,16.2 lbs
+LR4-2,Clean Cycles,2026-06-22 10:58,1985
+LR4-2,Clean Cycle In Progress,2026-06-22 10:58,-
+LR4-1,Clean Cycle In Progress,2026-06-22 10:59,-
+LR4-1,Clean Cycles,2026-06-22 10:59,2328
+LR4-2,DFILevelPercent,2026-06-22 10:59,-
+LR4-1,DFILevelPercent,2026-06-22 11:00,-
+LR4-2,Clean Cycle Complete,2026-06-22 11:00,-
+LR4-1,Clean Cycle Complete,2026-06-22 11:02,-
+LR4-2,Cat Detected,2026-06-22 16:33,-
+LR4-1,Cat Detected,2026-06-22 17:50,-
+LR4-1,Pet Weight Recorded,2026-06-22 17:51,11.31 lbs
+LR4-1,Clean Cycle In Progress,2026-06-22 17:58,-
+LR4-1,Clean Cycles,2026-06-22 17:58,2329
+LR4-1,DFILevelPercent,2026-06-22 17:59,-
+LR4-1,Clean Cycle Complete,2026-06-22 18:00,-
+LR4-1,Cat Detected,2026-06-23 05:38,-
+LR4-1,Pet Weight Recorded,2026-06-23 05:39,11.5 lbs
+LR4-1,Clean Cycles,2026-06-23 05:46,2330
+LR4-1,Clean Cycle In Progress,2026-06-23 05:46,-
+LR4-1,DFILevelPercent,2026-06-23 05:47,-
+LR4-1,Clean Cycle Complete,2026-06-23 05:48,-
+LR4-1,Cat Detected,2026-06-23 06:00,-
+LR4-1,Pet Weight Recorded,2026-06-23 06:01,16.36 lbs
+LR4-1,Clean Cycles,2026-06-23 06:08,2331
+LR4-1,Clean Cycle In Progress,2026-06-23 06:08,-
+LR4-1,DFILevelPercent,2026-06-23 06:09,-
+LR4-1,Clean Cycle Complete,2026-06-23 06:10,-
+LR4-1,Cat Detected,2026-06-23 07:59,-
+LR4-1,Pet Weight Recorded,2026-06-23 08:00,11.42 lbs
+LR4-1,Clean Cycle In Progress,2026-06-23 08:07,-
+LR4-1,Clean Cycles,2026-06-23 08:07,2332
+LR4-1,DFILevelPercent,2026-06-23 08:08,-
+LR4-1,Clean Cycle Complete,2026-06-23 08:09,-
+LR4-2,Clean Cycles,2026-06-23 18:12,1986
+LR4-2,Clean Cycle In Progress,2026-06-23 18:12,-
+LR4-2,Pet Weight Recorded,2026-06-23 18:12,23.04 lbs
+LR4-2,DFILevelPercent,2026-06-23 18:13,-
+LR4-2,Clean Cycle Complete,2026-06-23 18:14,-
+LR4-1,Cat Detected,2026-06-23 19:09,-
+LR4-1,Pet Weight Recorded,2026-06-23 19:10,11.47 lbs
+LR4-1,Clean Cycles,2026-06-23 19:17,2333
+LR4-1,Clean Cycle In Progress,2026-06-23 19:17,-
+LR4-1,DFILevelPercent,2026-06-23 19:18,-
+LR4-1,Clean Cycle Complete,2026-06-23 19:19,-
+LR4-2,Cat Detected,2026-06-23 19:38,-
+LR4-2,Pet Weight Recorded,2026-06-23 19:40,19.69 lbs
+LR4-2,Clean Cycles,2026-06-23 19:47,1987
+LR4-2,Clean Cycle In Progress,2026-06-23 19:47,-
+LR4-2,DFILevelPercent,2026-06-23 19:48,-
+LR4-2,Clean Cycle Complete,2026-06-23 19:49,-
+LR4-2,Cat Detected,2026-06-23 20:06,-
+LR4-2,Pet Weight Recorded,2026-06-23 20:07,18.91 lbs
+LR4-2,Clean Cycle In Progress,2026-06-23 20:14,-
+LR4-2,Clean Cycles,2026-06-23 20:14,1988
+LR4-2,DFILevelPercent,2026-06-23 20:16,-
+LR4-2,Clean Cycle Complete,2026-06-23 20:17,-
+LR4-1,Cat Detected,2026-06-23 20:57,-
+LR4-1,Pet Weight Recorded,2026-06-23 20:58,16.29 lbs
+LR4-1,Clean Cycle In Progress,2026-06-23 21:05,-
+LR4-1,Clean Cycles,2026-06-23 21:05,2334
+LR4-1,DFILevelPercent,2026-06-23 21:06,-
+LR4-1,Clean Cycle Complete,2026-06-23 21:07,-
+LR4-1,Cat Detected,2026-06-24 07:11,-
+LR4-1,Pet Weight Recorded,2026-06-24 07:13,11.45 lbs
+LR4-1,Pet Weight Recorded,2026-06-24 07:17,11.39 lbs
+LR4-1,Clean Cycles,2026-06-24 07:24,2335
+LR4-1,Clean Cycle In Progress,2026-06-24 07:24,-
+LR4-1,Cat Sensor Interrupted,2026-06-24 07:25,-
+LR4-1,DFILevelPercent,2026-06-24 07:26,-
+LR4-1,Clean Cycle Complete,2026-06-24 07:27,-
+LR4-2,Cat Detected,2026-06-24 07:30,-
+LR4-2,Pet Weight Recorded,2026-06-24 07:31,15.89 lbs
+LR4-2,Clean Cycles,2026-06-24 07:38,1989
+LR4-2,Clean Cycle In Progress,2026-06-24 07:38,-
+LR4-2,DFILevelPercent,2026-06-24 07:40,-
+LR4-2,Clean Cycle Complete,2026-06-24 07:41,-
+LR4-2,Cat Detected,2026-06-24 10:39,-
+LR4-2,Pet Weight Recorded,2026-06-24 10:40,10.81 lbs
+LR4-2,Clean Cycle In Progress,2026-06-24 10:47,-
+LR4-2,Clean Cycles,2026-06-24 10:47,1990
+LR4-2,DFILevelPercent,2026-06-24 10:48,-
+LR4-2,Clean Cycle Complete,2026-06-24 10:49,-

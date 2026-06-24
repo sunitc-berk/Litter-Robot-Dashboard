@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Secrets / credentials — never commit these
+.env
+*.env
+secrets.*
+credentials.*
+*WHISKER_PASSWORD*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# Transient diagnostic / report output
+schedule_diag.txt
+report.txt

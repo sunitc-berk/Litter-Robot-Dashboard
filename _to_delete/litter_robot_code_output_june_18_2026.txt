@@ -1,0 +1,705 @@
+────────────────────────────────────────────────────────────
+  🤖  LITTER-ROBOT STATUS
+────────────────────────────────────────────────────────────
+
+  Name        : LR4-1
+  Model       : Litter-Robot 4
+  Serial      : LR4C509585
+  Robot ID    : 6dc7d8342c00247fccede86b047a1ccfd5df657f132189832a85bb5b8f9a1524
+  Online      : Yes
+  Status      : Ready  (RDY)
+  Power       : On
+  Onboarded   : Yes
+  Setup       : Saturday, May 23 2026  04:37 PM
+  Last Seen   : Saturday, June 06 2026  04:32 PM
+  Firmware    : ESP: 1.1.75 / PIC: 10500.3072.2.93 / TOF: 5.0.2.1
+
+  ── Levels & Cycles ─────────────────────────────
+  Litter Level         : 90%  (LitterLevelState.OPTIMAL)
+  Litter Level (calc)  : 110%
+  Waste Drawer         : 32%
+  Drawer Full?         : No
+  Drawer Full Indicator: No
+  Cycle Count          : 2,328
+  Cycle Capacity       : 13
+  Cycles After Full    : 0
+  Scoops Saved         : 2,328
+  Last Pet Weight      : 16.2 lbs
+  Clean Wait Time      : 7 min
+
+  ── Configuration ───────────────────────────────
+  Timezone        : America/Los_Angeles
+  Surface Type    : SurfaceType.TILE
+  Power Type      : AC  (AC=mains, DC=battery backup)
+  Panel Locked    : No
+  Panel Brightness: N/A
+  Night Light Mode: NightLightMode.OFF  (enabled: No)
+  Night Light Lvl : 100  (100)
+
+  ── LitterHopper ────────────────────────────────
+  Hopper Status   : N/A
+  Hopper Removed  : Yes
+
+  ── Sleep Mode ──────────────────────────────────
+  Schedule Enabled: No
+  Currently Asleep: No
+
+  ── Diagnostics ─────────────────────────────────
+  Globe Motor Fault   : GlobeMotorFaultStatus.FAULT_CLEAR
+  Globe Retract Fault : GlobeMotorFaultStatus.FAULT_CLEAR
+  USB Fault           : UsbFaultStatus.CLEAR
+  Wi-Fi Mode          : WifiModeStatus.ROUTER_CONNECTED
+
+  ── Firmware ────────────────────────────────────
+  Update Status   : NONE
+  Update Triggered: No
+  Update Available: No
+
+────────────────────────────────────────────────────────────
+  📋  ACTIVITY HISTORY  —  LR4-1  (up to 2,000 events)
+────────────────────────────────────────────────────────────
+  Retrieved 177 events.
+
+     1. Monday, June 22 2026  06:02 PM          Clean Cycle Complete
+     2. Monday, June 22 2026  06:00 PM          DFILevelPercent
+     3. Monday, June 22 2026  05:59 PM          Clean Cycle In Progress
+     4. Monday, June 22 2026  05:59 PM          Clean Cycles: 2328
+     5. Monday, June 22 2026  05:52 PM          Pet Weight Recorded: 16.2 lbs
+     6. Monday, June 22 2026  05:51 PM          Cat Detected
+     7. Monday, June 22 2026  01:59 PM          Clean Cycle Complete
+     8. Monday, June 22 2026  01:58 PM          DFILevelPercent
+     9. Monday, June 22 2026  01:57 PM          Clean Cycles: 2327
+    10. Monday, June 22 2026  01:57 PM          Clean Cycle In Progress
+    11. Monday, June 22 2026  01:50 PM          Pet Weight Recorded: 11.45 lbs
+    12. Monday, June 22 2026  01:43 PM          Pet Weight Recorded: 11.45 lbs
+    13. Monday, June 22 2026  01:42 PM          Cat Detected
+    14. Monday, June 22 2026  10:27 AM          Clean Cycle Complete
+    15. Monday, June 22 2026  10:26 AM          DFILevelPercent
+    16. Monday, June 22 2026  10:25 AM          Clean Cycle In Progress
+    17. Monday, June 22 2026  10:25 AM          Clean Cycles: 2326
+    18. Monday, June 22 2026  10:18 AM          Pet Weight Recorded: 16.3 lbs
+    19. Monday, June 22 2026  10:17 AM          Cat Detected
+    20. Monday, June 22 2026  12:38 AM          Clean Cycle Complete
+    21. Monday, June 22 2026  12:37 AM          DFILevelPercent
+    22. Monday, June 22 2026  12:36 AM          Clean Cycle In Progress
+    23. Monday, June 22 2026  12:36 AM          Clean Cycles: 2325
+    24. Monday, June 22 2026  12:29 AM          Pet Weight Recorded: 11.62 lbs
+    25. Monday, June 22 2026  12:27 AM          Cat Detected
+    26. Sunday, June 21 2026  04:40 PM          Clean Cycle Complete
+    27. Sunday, June 21 2026  04:39 PM          DFILevelPercent
+    28. Sunday, June 21 2026  04:38 PM          Clean Cycles: 2324
+    29. Sunday, June 21 2026  04:38 PM          Clean Cycle In Progress
+    30. Sunday, June 21 2026  04:31 PM          Pet Weight Recorded: 11.22 lbs
+    31. Sunday, June 21 2026  04:30 PM          Cat Detected
+    32. Sunday, June 21 2026  12:49 PM          Clean Cycle Complete
+    33. Sunday, June 21 2026  12:48 PM          DFILevelPercent
+    34. Sunday, June 21 2026  12:47 PM          Clean Cycles: 2323
+    35. Sunday, June 21 2026  12:47 PM          Clean Cycle In Progress
+    36. Sunday, June 21 2026  12:40 PM          Pet Weight Recorded: 11.51 lbs
+    37. Sunday, June 21 2026  12:39 PM          Cat Detected
+    38. Sunday, June 21 2026  12:29 PM          Clean Cycle Complete
+    39. Sunday, June 21 2026  12:28 PM          DFILevelPercent
+    40. Sunday, June 21 2026  12:27 PM          Clean Cycle In Progress
+    41. Sunday, June 21 2026  12:27 PM          Clean Cycles: 2322
+    42. Sunday, June 21 2026  12:20 PM          Pet Weight Recorded: 11.53 lbs
+    43. Sunday, June 21 2026  12:19 PM          Cat Detected
+    44. Sunday, June 21 2026  06:06 AM          Clean Cycle Complete
+    45. Sunday, June 21 2026  06:05 AM          DFILevelPercent
+    46. Sunday, June 21 2026  06:04 AM          Clean Cycle In Progress
+    47. Sunday, June 21 2026  06:04 AM          Clean Cycles: 2321
+    48. Sunday, June 21 2026  05:57 AM          Pet Weight Recorded: 19.35 lbs
+    49. Sunday, June 21 2026  05:56 AM          Cat Detected
+    50. Sunday, June 21 2026  02:38 AM          Clean Cycle Complete
+    51. Sunday, June 21 2026  02:37 AM          DFILevelPercent
+    52. Sunday, June 21 2026  02:36 AM          Clean Cycles: 2320
+    53. Sunday, June 21 2026  02:36 AM          Clean Cycle In Progress
+    54. Sunday, June 21 2026  02:29 AM          Pet Weight Recorded: 16.21 lbs
+    55. Sunday, June 21 2026  02:28 AM          Cat Detected
+    56. Sunday, June 21 2026  01:43 AM          Clean Cycle Complete
+    57. Sunday, June 21 2026  01:42 AM          DFILevelPercent
+    58. Sunday, June 21 2026  01:41 AM          Clean Cycles: 2319
+    59. Sunday, June 21 2026  01:41 AM          Clean Cycle In Progress
+    60. Sunday, June 21 2026  01:28 AM          Cat Detected
+    61. Saturday, June 20 2026  01:32 PM        Clean Cycle Complete
+    62. Saturday, June 20 2026  01:31 PM        DFILevelPercent
+    63. Saturday, June 20 2026  01:30 PM        Clean Cycle In Progress
+    64. Saturday, June 20 2026  01:30 PM        Clean Cycles: 2318
+    65. Saturday, June 20 2026  01:23 PM        Pet Weight Recorded: 16.05 lbs
+    66. Saturday, June 20 2026  01:22 PM        Cat Detected
+    67. Saturday, June 20 2026  12:07 PM        Clean Cycle Complete
+    68. Saturday, June 20 2026  12:06 PM        DFILevelPercent
+    69. Saturday, June 20 2026  12:05 PM        Clean Cycles: 2317
+    70. Saturday, June 20 2026  12:05 PM        Clean Cycle In Progress
+    71. Saturday, June 20 2026  11:57 AM        Pet Weight Recorded: 11.59 lbs
+    72. Saturday, June 20 2026  11:55 AM        Cat Detected
+    73. Saturday, June 20 2026  01:37 AM        Clean Cycle Complete
+    74. Saturday, June 20 2026  01:36 AM        DFILevelPercent
+    75. Saturday, June 20 2026  01:35 AM        Clean Cycle In Progress
+    76. Saturday, June 20 2026  01:35 AM        Clean Cycles: 2316
+    77. Saturday, June 20 2026  01:28 AM        Pet Weight Recorded: 16.26 lbs
+    78. Saturday, June 20 2026  01:27 AM        Cat Detected
+    79. Friday, June 19 2026  08:34 PM          Clean Cycle Complete
+    80. Friday, June 19 2026  08:33 PM          DFILevelPercent
+    81. Friday, June 19 2026  08:32 PM          Clean Cycles: 2315
+    82. Friday, June 19 2026  08:32 PM          Clean Cycle In Progress
+    83. Friday, June 19 2026  02:12 PM          Clean Cycle Complete
+    84. Friday, June 19 2026  02:11 PM          DFILevelPercent
+    85. Friday, June 19 2026  02:10 PM          Clean Cycles: 2314
+    86. Friday, June 19 2026  02:10 PM          Clean Cycle In Progress
+    87. Friday, June 19 2026  02:03 PM          Pet Weight Recorded: 16.32 lbs
+    88. Friday, June 19 2026  01:55 PM          Pet Weight Recorded: 11.47 lbs
+    89. Friday, June 19 2026  01:55 PM          Cat Detected
+    90. Friday, June 19 2026  01:47 PM          Clean Cycle Complete
+    91. Friday, June 19 2026  01:46 PM          DFILevelPercent
+    92. Friday, June 19 2026  01:45 PM          Clean Cycles: 2313
+    93. Friday, June 19 2026  01:45 PM          Clean Cycle In Progress
+    94. Friday, June 19 2026  01:38 PM          Pet Weight Recorded: 11.56 lbs
+    95. Friday, June 19 2026  01:37 PM          Cat Detected
+    96. Friday, June 19 2026  10:33 AM          Clean Cycle Complete
+    97. Friday, June 19 2026  10:32 AM          DFILevelPercent
+    98. Friday, June 19 2026  10:31 AM          Clean Cycles: 2312
+    99. Friday, June 19 2026  10:31 AM          Clean Cycle In Progress
+   100. Friday, June 19 2026  10:24 AM          Pet Weight Recorded: 16.21 lbs
+   101. Friday, June 19 2026  10:23 AM          Cat Detected
+   102. Friday, June 19 2026  12:35 AM          Clean Cycle Complete
+   103. Friday, June 19 2026  12:34 AM          DFILevelPercent
+   104. Friday, June 19 2026  12:33 AM          Clean Cycles: 2311
+   105. Friday, June 19 2026  12:33 AM          Clean Cycle In Progress
+   106. Friday, June 19 2026  12:26 AM          Pet Weight Recorded: 11.65 lbs
+   107. Friday, June 19 2026  12:24 AM          Cat Detected
+   108. Thursday, June 18 2026  01:51 PM        Clean Cycle Complete
+   109. Thursday, June 18 2026  01:50 PM        DFILevelPercent
+   110. Thursday, June 18 2026  01:49 PM        Clean Cycles: 2310
+   111. Thursday, June 18 2026  01:49 PM        Clean Cycle In Progress
+   112. Thursday, June 18 2026  01:42 PM        Pet Weight Recorded: 16.12 lbs
+   113. Thursday, June 18 2026  01:41 PM        Cat Detected
+   114. Thursday, June 18 2026  11:52 AM        Clean Cycle Complete
+   115. Thursday, June 18 2026  11:51 AM        DFILevelPercent
+   116. Thursday, June 18 2026  11:49 AM        Clean Cycles: 2309
+   117. Thursday, June 18 2026  11:49 AM        Clean Cycle In Progress
+   118. Thursday, June 18 2026  11:42 AM        Pet Weight Recorded: 11.45 lbs
+   119. Thursday, June 18 2026  11:41 AM        Cat Detected
+   120. Thursday, June 18 2026  02:37 AM        Clean Cycle Complete
+   121. Thursday, June 18 2026  02:36 AM        DFILevelPercent
+   122. Thursday, June 18 2026  02:35 AM        Clean Cycle In Progress
+   123. Thursday, June 18 2026  02:35 AM        Clean Cycles: 2308
+   124. Thursday, June 18 2026  02:28 AM        Pet Weight Recorded: 11.42 lbs
+   125. Thursday, June 18 2026  02:26 AM        Cat Detected
+   126. Thursday, June 18 2026  02:24 AM        Clean Cycle Complete
+   127. Thursday, June 18 2026  02:23 AM        DFILevelPercent
+   128. Thursday, June 18 2026  02:22 AM        Clean Cycles: 2307
+   129. Thursday, June 18 2026  02:22 AM        Clean Cycle In Progress
+   130. Thursday, June 18 2026  02:15 AM        Pet Weight Recorded: 16.18 lbs
+   131. Thursday, June 18 2026  02:14 AM        Cat Detected
+   132. Thursday, June 18 2026  12:24 AM        Clean Cycle Complete
+   133. Thursday, June 18 2026  12:23 AM        DFILevelPercent
+   134. Thursday, June 18 2026  12:22 AM        Clean Cycle In Progress
+   135. Thursday, June 18 2026  12:22 AM        Clean Cycles: 2306
+   136. Thursday, June 18 2026  12:15 AM        Pet Weight Recorded: 11.44 lbs
+   137. Thursday, June 18 2026  12:13 AM        Cat Detected
+   138. Wednesday, June 17 2026  02:30 PM       Clean Cycle Complete
+   139. Wednesday, June 17 2026  02:28 PM       DFILevelPercent
+   140. Wednesday, June 17 2026  02:27 PM       Clean Cycle In Progress
+   141. Wednesday, June 17 2026  02:27 PM       Clean Cycles: 2305
+   142. Wednesday, June 17 2026  02:20 PM       Pet Weight Recorded: 16 lbs
+   143. Wednesday, June 17 2026  02:19 PM       Cat Detected
+   144. Wednesday, June 17 2026  01:38 PM       Clean Cycle Complete
+   145. Wednesday, June 17 2026  01:37 PM       DFILevelPercent
+   146. Wednesday, June 17 2026  01:36 PM       Clean Cycle In Progress
+   147. Wednesday, June 17 2026  01:36 PM       Clean Cycles: 2304
+   148. Wednesday, June 17 2026  01:29 PM       Pet Weight Recorded: 16.14 lbs
+   149. Wednesday, June 17 2026  01:28 PM       Cat Detected
+   150. Tuesday, June 16 2026  11:57 PM         Clean Cycle Complete
+   151. Tuesday, June 16 2026  11:56 PM         DFILevelPercent
+   152. Tuesday, June 16 2026  11:55 PM         Clean Cycle In Progress
+   153. Tuesday, June 16 2026  11:55 PM         Clean Cycles: 2303
+   154. Tuesday, June 16 2026  11:48 PM         Pet Weight Recorded: 11.39 lbs
+   155. Tuesday, June 16 2026  11:47 PM         Cat Detected
+   156. Tuesday, June 16 2026  11:39 PM         Clean Cycle Complete
+   157. Tuesday, June 16 2026  11:37 PM         DFILevelPercent
+   158. Tuesday, June 16 2026  11:36 PM         Clean Cycles: 2302
+   159. Tuesday, June 16 2026  11:36 PM         Clean Cycle In Progress
+   160. Tuesday, June 16 2026  12:14 PM         Clean Cycle Complete
+   161. Tuesday, June 16 2026  12:13 PM         DFILevelPercent
+   162. Tuesday, June 16 2026  12:12 PM         Clean Cycle In Progress
+   163. Tuesday, June 16 2026  12:12 PM         Clean Cycles: 2301
+   164. Tuesday, June 16 2026  12:05 PM         Pet Weight Recorded: 15.97 lbs
+   165. Tuesday, June 16 2026  12:04 PM         Cat Detected
+   166. Tuesday, June 16 2026  09:56 AM         Clean Cycle Complete
+   167. Tuesday, June 16 2026  09:55 AM         DFILevelPercent
+   168. Tuesday, June 16 2026  09:54 AM         Clean Cycle In Progress
+   169. Tuesday, June 16 2026  09:54 AM         Clean Cycles: 2300
+   170. Tuesday, June 16 2026  09:47 AM         Pet Weight Recorded: 11.33 lbs
+   171. Tuesday, June 16 2026  09:45 AM         Cat Detected
+   172. Tuesday, June 16 2026  09:08 AM         Clean Cycle Complete
+   173. Tuesday, June 16 2026  09:07 AM         DFILevelPercent
+   174. Tuesday, June 16 2026  09:06 AM         Clean Cycle In Progress
+   175. Tuesday, June 16 2026  09:06 AM         Clean Cycles: 2299
+   176. Tuesday, June 16 2026  08:59 AM         Pet Weight Recorded: 16 lbs
+   177. Tuesday, June 16 2026  08:58 AM         Cat Detected
+
+────────────────────────────────────────────────────────────
+  📊  USAGE INSIGHT (last 30 days)  —  LR4-1
+────────────────────────────────────────────────────────────
+  Total Cycles    : 105
+  Cat Detections  : 96
+  Days Tracked    : 31
+  Avg / Day       : 3.4 cycles
+
+  Date                    Cycles
+  ──────────────────────  ──────
+  Monday, June 22 2026      3  ███
+  Sunday, June 21 2026      4  ████
+  Saturday, June 20 2026    5  █████
+  Friday, June 19 2026      5  █████
+  Thursday, June 18 2026    3  ███
+  Wednesday, June 17 2026    5  █████
+  Tuesday, June 16 2026     5  █████
+  Monday, June 15 2026      4  ████
+  Sunday, June 14 2026      2  ██
+  Saturday, June 13 2026    1  █
+  Friday, June 12 2026      4  ████
+  Thursday, June 11 2026    2  ██
+  Wednesday, June 10 2026    2  ██
+  Tuesday, June 09 2026     3  ███
+  Monday, June 08 2026      4  ████
+  Sunday, June 07 2026      3  ███
+  Saturday, June 06 2026    1  █
+  Friday, June 05 2026      3  ███
+  Thursday, June 04 2026    2  ██
+  Wednesday, June 03 2026    1  █
+  Tuesday, June 02 2026     7  ███████
+  Monday, June 01 2026      4  ████
+  Sunday, May 31 2026       1  █
+  Saturday, May 30 2026     4  ████
+  Friday, May 29 2026       3  ███
+  Thursday, May 28 2026     5  █████
+  Wednesday, May 27 2026    4  ████
+  Tuesday, May 26 2026      3  ███
+  Monday, May 25 2026       7  ███████
+  Sunday, May 24 2026       3  ███
+  Saturday, May 23 2026     2  ██
+
+  Name        : LR4-2
+  Model       : Litter-Robot 4
+  Serial      : LR4C692544
+  Robot ID    : b3a4cb33a8e886c375c084b2593510d0c1c9bb49678f0e96b21aec4c65a637d1
+  Online      : Yes
+  Status      : Ready  (RDY)
+  Power       : On
+  Onboarded   : Yes
+  Setup       : Saturday, May 23 2026  04:40 PM
+  Last Seen   : Tuesday, June 16 2026  10:33 PM
+  Firmware    : ESP: 1.1.75 / PIC: 10500.3072.2.93 / TOF: 5.0.2.1
+
+  ── Levels & Cycles ─────────────────────────────
+  Litter Level         : 90%  (LitterLevelState.OPTIMAL)
+  Litter Level (calc)  : 90%
+  Waste Drawer         : 73%
+  Drawer Full?         : No
+  Drawer Full Indicator: No
+  Cycle Count          : 1,985
+  Cycle Capacity       : 22
+  Cycles After Full    : 0
+  Scoops Saved         : 1,985
+  Last Pet Weight      : 16.13 lbs
+  Clean Wait Time      : 7 min
+
+  ── Configuration ───────────────────────────────
+  Timezone        : America/Los_Angeles
+  Surface Type    : SurfaceType.TILE
+  Power Type      : AC  (AC=mains, DC=battery backup)
+  Panel Locked    : No
+  Panel Brightness: N/A
+  Night Light Mode: NightLightMode.AUTO  (enabled: Yes)
+  Night Light Lvl : 100  (100)
+
+  ── LitterHopper ────────────────────────────────
+  Hopper Status   : N/A
+  Hopper Removed  : Yes
+
+  ── Sleep Mode ──────────────────────────────────
+  Schedule Enabled: No
+  Currently Asleep: No
+
+  ── Diagnostics ─────────────────────────────────
+  Globe Motor Fault   : GlobeMotorFaultStatus.FAULT_CLEAR
+  Globe Retract Fault : GlobeMotorFaultStatus.FAULT_CLEAR
+  USB Fault           : UsbFaultStatus.CLEAR
+  Wi-Fi Mode          : WifiModeStatus.ROUTER_CONNECTED
+
+  ── Firmware ────────────────────────────────────
+  Update Status   : PICTRIGGERED
+  Update Triggered: No
+  Update Available: No
+
+────────────────────────────────────────────────────────────
+  📋  ACTIVITY HISTORY  —  LR4-2  (up to 2,000 events)
+────────────────────────────────────────────────────────────
+  Retrieved 171 events.
+
+     1. Monday, June 22 2026  06:00 PM          Clean Cycle Complete
+     2. Monday, June 22 2026  05:59 PM          DFILevelPercent
+     3. Monday, June 22 2026  05:58 PM          Clean Cycle In Progress
+     4. Monday, June 22 2026  05:58 PM          Clean Cycles: 1985
+     5. Monday, June 22 2026  05:51 PM          Pet Weight Recorded: 16.13 lbs
+     6. Monday, June 22 2026  05:51 PM          Cat Detected
+     7. Monday, June 22 2026  04:57 PM          Clean Cycle Complete
+     8. Monday, June 22 2026  04:56 PM          DFILevelPercent
+     9. Monday, June 22 2026  04:55 PM          Clean Cycles: 1984
+    10. Monday, June 22 2026  04:55 PM          Clean Cycle In Progress
+    11. Monday, June 22 2026  04:48 PM          Pet Weight Recorded: 18.89 lbs
+    12. Monday, June 22 2026  04:47 PM          Cat Detected
+    13. Monday, June 22 2026  10:28 AM          Clean Cycle Complete
+    14. Monday, June 22 2026  10:27 AM          DFILevelPercent
+    15. Monday, June 22 2026  10:26 AM          Clean Cycles: 1983
+    16. Monday, June 22 2026  10:26 AM          Clean Cycle In Progress
+    17. Monday, June 22 2026  10:19 AM          Pet Weight Recorded: 15.99 lbs
+    18. Monday, June 22 2026  10:18 AM          Cat Detected
+    19. Monday, June 22 2026  03:03 AM          Clean Cycle Complete
+    20. Monday, June 22 2026  03:02 AM          DFILevelPercent
+    21. Monday, June 22 2026  03:01 AM          Clean Cycles: 1982
+    22. Monday, June 22 2026  03:01 AM          Clean Cycle In Progress
+    23. Monday, June 22 2026  02:54 AM          Pet Weight Recorded: 18.77 lbs
+    24. Monday, June 22 2026  02:53 AM          Cat Detected
+    25. Monday, June 22 2026  12:10 AM          Clean Cycle Complete
+    26. Monday, June 22 2026  12:09 AM          DFILevelPercent
+    27. Monday, June 22 2026  12:08 AM          Clean Cycles: 1981
+    28. Monday, June 22 2026  12:08 AM          Clean Cycle In Progress
+    29. Monday, June 22 2026  12:01 AM          Pet Weight Recorded: 18.93 lbs
+    30. Monday, June 22 2026  12:00 AM          Cat Detected
+    31. Sunday, June 21 2026  04:39 PM          Clean Cycle Complete
+    32. Sunday, June 21 2026  04:38 PM          DFILevelPercent
+    33. Sunday, June 21 2026  04:37 PM          Clean Cycle In Progress
+    34. Sunday, June 21 2026  04:37 PM          Clean Cycles: 1980
+    35. Sunday, June 21 2026  04:28 PM          Pet Weight Recorded: 16.08 lbs
+    36. Sunday, June 21 2026  04:27 PM          Cat Detected
+    37. Sunday, June 21 2026  02:40 AM          Clean Cycle Complete
+    38. Sunday, June 21 2026  02:38 AM          DFILevelPercent
+    39. Sunday, June 21 2026  02:37 AM          Clean Cycles: 1979
+    40. Sunday, June 21 2026  02:37 AM          Clean Cycle In Progress
+    41. Sunday, June 21 2026  02:30 AM          Pet Weight Recorded: 15.98 lbs
+    42. Sunday, June 21 2026  02:29 AM          Cat Detected
+    43. Sunday, June 21 2026  01:43 AM          Clean Cycle Complete
+    44. Sunday, June 21 2026  01:42 AM          Cat Sensor Interrupted
+    45. Sunday, June 21 2026  01:41 AM          Clean Cycles: 1978
+    46. Sunday, June 21 2026  01:41 AM          Clean Cycle In Progress
+    47. Saturday, June 20 2026  04:19 PM        Clean Cycle Complete
+    48. Saturday, June 20 2026  04:18 PM        DFILevelPercent
+    49. Saturday, June 20 2026  04:17 PM        Clean Cycle In Progress
+    50. Saturday, June 20 2026  04:17 PM        Clean Cycles: 1977
+    51. Saturday, June 20 2026  04:10 PM        Pet Weight Recorded: 19.77 lbs
+    52. Saturday, June 20 2026  04:09 PM        Cat Detected
+    53. Saturday, June 20 2026  01:31 PM        Clean Cycle Complete
+    54. Saturday, June 20 2026  01:30 PM        DFILevelPercent
+    55. Saturday, June 20 2026  01:29 PM        Clean Cycle In Progress
+    56. Saturday, June 20 2026  01:29 PM        Clean Cycles: 1976
+    57. Saturday, June 20 2026  01:22 PM        Pet Weight Recorded: 16.05 lbs
+    58. Saturday, June 20 2026  01:21 PM        Cat Detected
+    59. Saturday, June 20 2026  05:10 AM        Clean Cycle Complete
+    60. Saturday, June 20 2026  05:09 AM        DFILevelPercent
+    61. Saturday, June 20 2026  05:07 AM        Clean Cycle In Progress
+    62. Saturday, June 20 2026  05:07 AM        Clean Cycles: 1975
+    63. Saturday, June 20 2026  05:00 AM        Pet Weight Recorded: 18.89 lbs
+    64. Saturday, June 20 2026  04:59 AM        Cat Detected
+    65. Saturday, June 20 2026  02:16 AM        Clean Cycle Complete
+    66. Saturday, June 20 2026  02:15 AM        DFILevelPercent
+    67. Saturday, June 20 2026  02:14 AM        Clean Cycle In Progress
+    68. Saturday, June 20 2026  02:14 AM        Clean Cycles: 1974
+    69. Saturday, June 20 2026  02:07 AM        Pet Weight Recorded: 11.42 lbs
+    70. Saturday, June 20 2026  02:06 AM        Cat Detected
+    71. Friday, June 19 2026  02:11 PM          Clean Cycle Complete
+    72. Friday, June 19 2026  02:10 PM          DFILevelPercent
+    73. Friday, June 19 2026  02:09 PM          Clean Cycles: 1973
+    74. Friday, June 19 2026  02:09 PM          Clean Cycle In Progress
+    75. Friday, June 19 2026  01:57 PM          Pet Weight Recorded: 11.15 lbs
+    76. Friday, June 19 2026  01:56 PM          Cat Detected
+    77. Friday, June 19 2026  11:54 AM          Clean Cycle Complete
+    78. Friday, June 19 2026  11:53 AM          DFILevelPercent
+    79. Friday, June 19 2026  11:51 AM          Clean Cycle In Progress
+    80. Friday, June 19 2026  11:51 AM          Clean Cycles: 1972
+    81. Friday, June 19 2026  11:44 AM          Pet Weight Recorded: 18.47 lbs
+    82. Friday, June 19 2026  11:44 AM          Cat Detected
+    83. Friday, June 19 2026  07:47 AM          Clean Cycle Complete
+    84. Friday, June 19 2026  07:46 AM          DFILevelPercent
+    85. Friday, June 19 2026  07:46 AM          Cat Sensor Interrupted
+    86. Friday, June 19 2026  07:45 AM          Clean Cycle In Progress
+    87. Friday, June 19 2026  07:45 AM          Clean Cycles: 1971
+    88. Friday, June 19 2026  07:37 AM          Pet Weight Recorded: 18.99 lbs
+    89. Friday, June 19 2026  07:36 AM          Cat Detected
+    90. Friday, June 19 2026  12:36 AM          Clean Cycle Complete
+    91. Friday, June 19 2026  12:35 AM          DFILevelPercent
+    92. Friday, June 19 2026  12:34 AM          Clean Cycle In Progress
+    93. Friday, June 19 2026  12:34 AM          Clean Cycles: 1970
+    94. Friday, June 19 2026  12:27 AM          Pet Weight Recorded: 11.25 lbs
+    95. Friday, June 19 2026  12:26 AM          Cat Detected
+    96. Thursday, June 18 2026  01:52 PM        Clean Cycle Complete
+    97. Thursday, June 18 2026  01:51 PM        DFILevelPercent
+    98. Thursday, June 18 2026  01:50 PM        Clean Cycle In Progress
+    99. Thursday, June 18 2026  01:50 PM        Clean Cycles: 1969
+   100. Thursday, June 18 2026  01:43 PM        Pet Weight Recorded: 15.88 lbs
+   101. Thursday, June 18 2026  01:42 PM        Cat Detected
+   102. Thursday, June 18 2026  08:52 AM        Clean Cycle Complete
+   103. Thursday, June 18 2026  08:50 AM        DFILevelPercent
+   104. Thursday, June 18 2026  08:49 AM        Clean Cycle In Progress
+   105. Thursday, June 18 2026  08:49 AM        Clean Cycles: 1968
+   106. Thursday, June 18 2026  08:42 AM        Pet Weight Recorded: 19.88 lbs
+   107. Thursday, June 18 2026  08:41 AM        Cat Detected
+   108. Thursday, June 18 2026  05:10 AM        Clean Cycle Complete
+   109. Thursday, June 18 2026  05:09 AM        DFILevelPercent
+   110. Thursday, June 18 2026  05:08 AM        Clean Cycle In Progress
+   111. Thursday, June 18 2026  05:08 AM        Clean Cycles: 1967
+   112. Thursday, June 18 2026  05:01 AM        Pet Weight Recorded: 18.97 lbs
+   113. Thursday, June 18 2026  04:59 AM        Cat Detected
+   114. Wednesday, June 17 2026  03:44 PM       Clean Cycle Complete
+   115. Wednesday, June 17 2026  03:42 PM       DFILevelPercent
+   116. Wednesday, June 17 2026  03:41 PM       Clean Cycle In Progress
+   117. Wednesday, June 17 2026  03:41 PM       Clean Cycles: 1966
+   118. Wednesday, June 17 2026  03:34 PM       Pet Weight Recorded: 11.56 lbs
+   119. Wednesday, June 17 2026  03:32 PM       Cat Detected
+   120. Wednesday, June 17 2026  01:37 PM       Clean Cycle Complete
+   121. Wednesday, June 17 2026  01:36 PM       DFILevelPercent
+   122. Wednesday, June 17 2026  01:35 PM       Clean Cycle In Progress
+   123. Wednesday, June 17 2026  01:35 PM       Clean Cycles: 1965
+   124. Wednesday, June 17 2026  01:28 PM       Cat Detected
+   125. Wednesday, June 17 2026  12:56 PM       Clean Cycle Complete
+   126. Wednesday, June 17 2026  12:54 PM       DFILevelPercent
+   127. Wednesday, June 17 2026  12:53 PM       Clean Cycle In Progress
+   128. Wednesday, June 17 2026  12:53 PM       Clean Cycles: 1964
+   129. Wednesday, June 17 2026  12:46 PM       Pet Weight Recorded: 11.29 lbs
+   130. Wednesday, June 17 2026  12:45 PM       Cat Detected
+   131. Wednesday, June 17 2026  11:00 AM       Clean Cycle Complete
+   132. Wednesday, June 17 2026  10:59 AM       DFILevelPercent
+   133. Wednesday, June 17 2026  10:58 AM       Clean Cycle In Progress
+   134. Wednesday, June 17 2026  10:58 AM       Clean Cycles: 1963
+   135. Wednesday, June 17 2026  10:51 AM       Pet Weight Recorded: 11.38 lbs
+   136. Wednesday, June 17 2026  10:50 AM       Cat Detected
+   137. Wednesday, June 17 2026  08:59 AM       Clean Cycle Complete
+   138. Wednesday, June 17 2026  08:58 AM       DFILevelPercent
+   139. Wednesday, June 17 2026  08:57 AM       Clean Cycle In Progress
+   140. Wednesday, June 17 2026  08:57 AM       Clean Cycles: 1962
+   141. Wednesday, June 17 2026  08:50 AM       Pet Weight Recorded: 18.56 lbs
+   142. Wednesday, June 17 2026  08:49 AM       Cat Detected
+   143. Wednesday, June 17 2026  05:50 AM       Clean Cycle Complete
+   144. Wednesday, June 17 2026  05:49 AM       DFILevelPercent
+   145. Wednesday, June 17 2026  05:48 AM       Clean Cycles: 1961
+   146. Wednesday, June 17 2026  05:48 AM       Clean Cycle In Progress
+   147. Wednesday, June 17 2026  05:40 AM       Pet Weight Recorded: 18.94 lbs
+   148. Wednesday, June 17 2026  05:39 AM       Cat Detected
+   149. Wednesday, June 17 2026  02:34 AM       Clean Cycle Complete
+   150. Wednesday, June 17 2026  02:33 AM       DFILevelPercent
+   151. Wednesday, June 17 2026  02:32 AM       Clean Cycle In Progress
+   152. Wednesday, June 17 2026  02:32 AM       Clean Cycles: 1960
+   153. Wednesday, June 17 2026  02:25 AM       Pet Weight Recorded: 16.2 lbs
+   154. Wednesday, June 17 2026  02:24 AM       Cat Detected
+   155. Tuesday, June 16 2026  11:39 PM         Clean Cycle Complete
+   156. Tuesday, June 16 2026  11:37 PM         DFILevelPercent
+   157. Tuesday, June 16 2026  11:36 PM         Clean Cycle In Progress
+   158. Tuesday, June 16 2026  11:36 PM         Clean Cycles: 1959
+   159. Tuesday, June 16 2026  11:35 PM         Cat Detected
+   160. Tuesday, June 16 2026  08:28 AM         Clean Cycle Complete
+   161. Tuesday, June 16 2026  08:27 AM         DFILevelPercent
+   162. Tuesday, June 16 2026  08:26 AM         Clean Cycle In Progress
+   163. Tuesday, June 16 2026  08:26 AM         Clean Cycles: 1958
+   164. Tuesday, June 16 2026  08:19 AM         Pet Weight Recorded: 18.73 lbs
+   165. Tuesday, June 16 2026  08:18 AM         Cat Detected
+   166. Tuesday, June 16 2026  04:20 AM         Clean Cycle Complete
+   167. Tuesday, June 16 2026  04:19 AM         DFILevelPercent
+   168. Tuesday, June 16 2026  04:18 AM         Clean Cycles: 1957
+   169. Tuesday, June 16 2026  04:18 AM         Clean Cycle In Progress
+   170. Tuesday, June 16 2026  04:11 AM         Pet Weight Recorded: 19.77 lbs
+   171. Tuesday, June 16 2026  04:10 AM         Cat Detected
+
+────────────────────────────────────────────────────────────
+  📊  USAGE INSIGHT (last 30 days)  —  LR4-2
+────────────────────────────────────────────────────────────
+  Total Cycles    : 124
+  Cat Detections  : 117
+  Days Tracked    : 31
+  Avg / Day       : 4.0 cycles
+
+  Date                    Cycles
+  ──────────────────────  ──────
+  Monday, June 22 2026      3  ███
+  Sunday, June 21 2026      3  ███
+  Saturday, June 20 2026    4  ████
+  Friday, June 19 2026      5  █████
+  Thursday, June 18 2026    3  ███
+  Wednesday, June 17 2026    6  ██████
+  Tuesday, June 16 2026     4  ████
+  Monday, June 15 2026      4  ████
+  Sunday, June 14 2026      3  ███
+  Saturday, June 13 2026    7  ███████
+  Friday, June 12 2026      3  ███
+  Thursday, June 11 2026    5  █████
+  Wednesday, June 10 2026    7  ███████
+  Tuesday, June 09 2026     5  █████
+  Monday, June 08 2026      4  ████
+  Sunday, June 07 2026      3  ███
+  Saturday, June 06 2026    4  ████
+  Friday, June 05 2026      4  ████
+  Thursday, June 04 2026    5  █████
+  Wednesday, June 03 2026    3  ███
+  Tuesday, June 02 2026     4  ████
+  Monday, June 01 2026      4  ████
+  Sunday, May 31 2026       4  ████
+  Saturday, May 30 2026     6  ██████
+  Friday, May 29 2026       3  ███
+  Thursday, May 28 2026     5  █████
+  Wednesday, May 27 2026    2  ██
+  Tuesday, May 26 2026      2  ██
+  Monday, May 25 2026       4  ████
+  Sunday, May 24 2026       3  ███
+  Saturday, May 23 2026     2  ██
+
+────────────────────────────────────────────────────────────
+  🐱  PETS
+────────────────────────────────────────────────────────────
+
+  Name            : mochi
+  Pet ID          : PET-af71b198-2a68-4179-9167-90577381dc41
+  Type            : cat
+  Gender          : male
+  Breeds          : []
+  Birthday        : N/A
+  Adoption Date   : N/A
+  Age             : 0
+  Fixed           : Yes
+  Diet            : wet/dry
+  Environment     : indoor
+  Health Concerns : []
+  Healthy         : Yes
+  Active Profile  : Yes
+  Weight ID Enabled: Yes
+  Pet Tag ID      : N/A
+  Image URL       : https://whisker-prod-pet-profile-images.s3.amazonaws.com/1949013/PET-af71b198-2a68-4179-9167-90577381dc41/1749779580?[REDACTED_PRESIGNED_URL]
+  Estimated Weight: 16.18256006642584 lbs
+  Last Weight Read: 16.2 lbs
+  Current Weight  : 16.2 lbs
+ERROR:pylitterbot.pet:Unknown diet "None"
+  Last Weighed    : Monday, June 22 2026  05:52 PM  (16.2 lbs)
+  Visits (24h)    : 4
+  Visits (7d)     : 20
+  Visits (30d)    : 20
+
+  ── Weight History (20 readings) ────────
+  Date & Time                             Weight
+  ──────────────────────────────────────  ──────
+  Tuesday, June 16 2026  08:59 AM         16.0 lbs
+  Tuesday, June 16 2026  12:05 PM         15.97 lbs
+  Wednesday, June 17 2026  02:25 AM       16.2 lbs
+  Wednesday, June 17 2026  01:29 PM       16.14 lbs
+  Wednesday, June 17 2026  02:20 PM       16.0 lbs
+  Thursday, June 18 2026  02:15 AM        16.18 lbs
+  Thursday, June 18 2026  01:42 PM        16.12 lbs
+  Thursday, June 18 2026  01:43 PM        15.88 lbs
+  Friday, June 19 2026  10:24 AM          16.21 lbs
+  Friday, June 19 2026  02:03 PM          16.32 lbs
+  Saturday, June 20 2026  01:28 AM        16.26 lbs
+  Saturday, June 20 2026  01:22 PM        16.05 lbs
+  Saturday, June 20 2026  01:23 PM        16.05 lbs
+  Sunday, June 21 2026  02:29 AM          16.21 lbs
+  Sunday, June 21 2026  02:30 AM          15.98 lbs
+  Sunday, June 21 2026  04:28 PM          16.08 lbs
+  Monday, June 22 2026  10:18 AM          16.3 lbs
+  Monday, June 22 2026  10:19 AM          15.99 lbs
+  Monday, June 22 2026  05:51 PM          16.13 lbs
+  Monday, June 22 2026  05:52 PM          16.2 lbs
+
+  Name            : socks
+  Pet ID          : PET-86392288-e486-4c0b-b2ff-822184a6a18b
+  Type            : cat
+  Gender          : male
+  Breeds          : []
+  Birthday        : N/A
+  Adoption Date   : N/A
+  Age             : 0
+  Fixed           : Yes
+  Diet            : N/A
+  Environment     : indoor
+  Health Concerns : []
+  Healthy         : Yes
+  Active Profile  : Yes
+  Weight ID Enabled: Yes
+  Pet Tag ID      : N/A
+  Image URL       : https://whisker-prod-pet-profile-images.s3.amazonaws.com/1949013/PET-86392288-e486-4c0b-b2ff-822184a6a18b/1749779621?[REDACTED_PRESIGNED_URL]
+  Estimated Weight: 19.35 lbs
+  Last Weight Read: 18.89 lbs
+  Current Weight  : 18.89 lbs
+ERROR:pylitterbot.pet:Unknown diet "None"
+  Last Weighed    : Monday, June 22 2026  04:48 PM  (18.89 lbs)
+  Visits (24h)    : 3
+  Visits (7d)     : 13
+  Visits (30d)    : 13
+
+  ── Weight History (13 readings) ────────
+  Date & Time                             Weight
+  ──────────────────────────────────────  ──────
+  Tuesday, June 16 2026  04:11 AM         19.77 lbs
+  Tuesday, June 16 2026  08:19 AM         18.73 lbs
+  Wednesday, June 17 2026  05:41 AM       18.94 lbs
+  Wednesday, June 17 2026  08:50 AM       18.56 lbs
+  Thursday, June 18 2026  05:01 AM        18.97 lbs
+  Friday, June 19 2026  07:37 AM          18.99 lbs
+  Friday, June 19 2026  11:45 AM          18.47 lbs
+  Saturday, June 20 2026  05:01 AM        18.89 lbs
+  Saturday, June 20 2026  04:10 PM        19.77 lbs
+  Sunday, June 21 2026  05:57 AM          19.35 lbs
+  Monday, June 22 2026  12:01 AM          18.93 lbs
+  Monday, June 22 2026  02:54 AM          18.77 lbs
+  Monday, June 22 2026  04:48 PM          18.89 lbs
+
+  Name            : mittens
+  Pet ID          : PET-c53e6f20-4497-4e1f-a88b-d544a727cdcc
+  Type            : cat
+  Gender          : female
+  Breeds          : []
+  Birthday        : Friday, May 17 2024
+  Adoption Date   : N/A
+  Age             : 0
+  Fixed           : Yes
+  Diet            : N/A
+  Environment     : indoor
+  Health Concerns : []
+  Healthy         : N/A
+  Active Profile  : Yes
+  Weight ID Enabled: Yes
+  Pet Tag ID      : N/A
+  Image URL       : https://whisker-prod-pet-profile-images.s3.amazonaws.com/1949013/PET-c53e6f20-4497-4e1f-a88b-d544a727cdcc?[REDACTED_PRESIGNED_URL]
+  Estimated Weight: 11.526802764479028 lbs
+  Last Weight Read: 11.45 lbs
+  Current Weight  : 11.45 lbs
+  Last Weighed    : Monday, June 22 2026  01:50 PM  (11.45 lbs)
+  Visits (24h)    : 3
+  Visits (7d)     : 21
+  Visits (30d)    : 21
+
+  ── Weight History (21 readings) ────────
+  Date & Time                             Weight
+  ──────────────────────────────────────  ──────
+  Tuesday, June 16 2026  09:47 AM         11.33 lbs
+  Tuesday, June 16 2026  11:48 PM         11.39 lbs
+  Wednesday, June 17 2026  10:51 AM       11.38 lbs
+  Wednesday, June 17 2026  12:46 PM       11.29 lbs
+  Wednesday, June 17 2026  03:34 PM       11.56 lbs
+  Thursday, June 18 2026  12:15 AM        11.44 lbs
+  Thursday, June 18 2026  02:28 AM        11.42 lbs
+  Thursday, June 18 2026  11:42 AM        11.45 lbs
+  Friday, June 19 2026  12:26 AM          11.65 lbs
+  Friday, June 19 2026  12:27 AM          11.25 lbs
+  Friday, June 19 2026  01:38 PM          11.56 lbs
+  Friday, June 19 2026  01:56 PM          11.47 lbs
+  Friday, June 19 2026  01:57 PM          11.15 lbs
+  Saturday, June 20 2026  02:07 AM        11.42 lbs
+  Saturday, June 20 2026  11:57 AM        11.59 lbs
+  Sunday, June 21 2026  12:20 PM          11.53 lbs
+  Sunday, June 21 2026  12:40 PM          11.51 lbs
+  Sunday, June 21 2026  04:31 PM          11.22 lbs
+  Monday, June 22 2026  12:29 AM          11.62 lbs
+  Monday, June 22 2026  01:44 PM          11.45 lbs
+  Monday, June 22 2026  01:50 PM          11.45 lbs
+
+────────────────────────────────────────────────────────────
+  Report generated: Monday, June 22 2026  10:43 PM
+────────────────────────────────────────────────────────────
+
