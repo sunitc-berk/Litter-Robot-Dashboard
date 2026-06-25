@@ -25,8 +25,10 @@ routed to the file for the month of the row's timestamp.
 Usage:
     python litter_robot_v1.py                       # run + append to logs
     python litter_robot_v1.py --log-dir "C:\\path"   # write logs elsewhere
-    python litter_robot_v1.py --no-install           # don't auto-install deps
     python litter_robot_v1.py > report.txt           # also save console report
+
+Dependencies (pylitterbot) are installed into a virtual environment from
+requirements.txt — see the README. They are not auto-installed at runtime.
 
 Credentials are taken from environment variables if set, otherwise you'll be
 prompted interactively:
@@ -46,11 +48,10 @@ import argparse
 import asyncio
 import csv
 import glob
-import importlib
+import importlib.util
 import json
 import os
 import re
-import subprocess
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -63,8 +64,9 @@ ACTIVITY_LIMIT = 2000
 INSIGHT_DAYS = 30
 WEIGHT_HISTORY_LIMIT = 100
 
-# Third-party packages this script needs: (import name, pip install spec)
-REQUIRED_PACKAGES = [("pylitterbot", "pylitterbot")]
+# Third-party packages this script needs (import names). Installed into a virtual
+# environment from requirements.txt — see the README. Not auto-installed at runtime.
+REQUIRED_PACKAGES = ["pylitterbot"]
 
 # Directory where the CSV logs are written. Set in run() from --log-dir, and
 # defaults to the folder that contains this script.
@@ -81,59 +83,26 @@ STATUS_FIELDS = [
 USAGE_FIELDS = ["Robot", "Activity", "Timestamp", "Value"]
 
 
-# ── Dependency bootstrap ─────────────────────────────────────────────────────
-def _pip_install(pip_spec: str) -> None:
-    """Install a package, falling back through strategies that handle
-    PEP 668 "externally-managed-environment" interpreters (e.g. uv- or
-    distro-managed Pythons that block a plain `pip install`)."""
-    base = [sys.executable, "-m", "pip", "install"]
-    attempts = [
-        base + [pip_spec],                                       # normal install
-        base + ["--break-system-packages", pip_spec],            # override PEP 668 guard
-        base + ["--user", "--break-system-packages", pip_spec],  # per-user fallback
-    ]
-    last_exc = None
-    for cmd in attempts:
-        try:
-            subprocess.check_call(cmd)
-            return
-        except subprocess.CalledProcessError as exc:
-            last_exc = exc
-            extra = " ".join(cmd[4:-1]) or "(default)"
-            print(f"[setup] install attempt failed [{extra}] — trying another method ...")
-    raise SystemExit(
-        f"[setup] Could not install '{pip_spec}' automatically: {last_exc}\n"
-        f"Your Python looks like an 'externally-managed' environment. "
-        f"Fix it one of these ways:\n"
-        f"  1) Create & use a virtual environment:\n"
-        f"       python -m venv .venv\n"
-        f"       .venv\\Scripts\\activate          (Windows)\n"
-        f"       pip install {pip_spec}\n"
-        f"  2) If you use uv:   uv pip install {pip_spec}\n"
-        f"  3) Force it:        {sys.executable} -m pip install --break-system-packages {pip_spec}"
-    )
+# ── Dependency check ─────────────────────────────────────────────────────────
+def check_dependencies() -> None:
+    """Verify required third-party packages are importable, exiting with setup
+    instructions if any are missing.
 
-
-def ensure_dependencies(auto_install: bool = True) -> None:
-    """Ensure required third-party packages are importable.
-
-    If a package is missing and auto_install is True, install it with pip using
-    the current interpreter. If auto_install is False, exit with instructions.
+    Dependencies are installed explicitly into a virtual environment from
+    requirements.txt (see the README); they are not auto-installed at runtime.
     """
-    for import_name, pip_spec in REQUIRED_PACKAGES:
-        try:
-            importlib.import_module(import_name)
-        except ImportError:
-            if not auto_install:
-                raise SystemExit(
-                    f"Missing dependency '{import_name}'.\n"
-                    f"Install it with:\n    {sys.executable} -m pip install {pip_spec}\n"
-                    f"(or re-run without --no-install to install automatically)."
-                )
-            print(f"[setup] '{import_name}' not found — installing '{pip_spec}' ...")
-            _pip_install(pip_spec)
-            importlib.invalidate_caches()
-            importlib.import_module(import_name)
+    missing = [name for name in REQUIRED_PACKAGES if importlib.util.find_spec(name) is None]
+    if not missing:
+        return
+    raise SystemExit(
+        "Missing dependencies: " + ", ".join(missing) + "\n"
+        "Create a virtual environment and install the requirements:\n"
+        "    python -m venv .venv\n"
+        "    source .venv/bin/activate        # macOS/Linux\n"
+        "    .venv\\Scripts\\activate           # Windows\n"
+        "    pip install -r requirements.txt\n"
+        "Then run this script with that environment's Python."
+    )
 
 
 # ── Credentials ──────────────────────────────────────────────────────────────
@@ -941,11 +910,6 @@ def parse_args(argv=None) -> argparse.Namespace:
         description="Litter-Robot 4 monitor — full extraction + monthly CSV logging."
     )
     parser.add_argument(
-        "--no-install",
-        action="store_true",
-        help="Do not auto-install missing dependencies; exit with instructions instead.",
-    )
-    parser.add_argument(
         "--log-dir",
         default=None,
         help="Directory for the CSV logs (default: the folder containing this script).",
@@ -972,7 +936,7 @@ def run() -> None:
     status, error = "ok", ""
     try:
         # Make sure third-party deps (pylitterbot) are available before we import them.
-        ensure_dependencies(auto_install=not args.no_install)
+        check_dependencies()
 
         # On Windows, aiohttp's default Proactor loop can raise noisy "Event loop is
         # closed" errors on shutdown; the Selector loop avoids that.
