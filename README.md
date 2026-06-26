@@ -204,11 +204,10 @@ robot name.
 
 ## Setup
 
-You only need to do this once. The script auto-installs its two dependencies
-(`pylitterbot` and `boto3`) on first run, or you can install them yourself:
+You only need to do this once. First, install the one library the script depends on:
 
 ```bash
-pip install pylitterbot boto3
+pip install pylitterbot
 ```
 
 Then give the script your Whisker login. It reads these from environment variables so
@@ -231,8 +230,9 @@ them stick for the automatic scheduled task, see the **Scheduled task** section 
 
 ## Run
 
-Once setup is done, run the monitor from the repo root. Each run prints a readable
-report and appends any new data to the logs:
+Once setup is done, run the monitor from the repo root with the virtual environment
+active (`source .venv/bin/activate`, or `.venv\Scripts\activate` on Windows). Each run
+prints a readable report and appends any new data to the logs:
 
 ```bash
 python code/litter_robot_v1.py --log-dir live_logs     # run + append to live_logs/
@@ -252,8 +252,18 @@ own so the history fills in around the clock. On Windows that's a scheduled task
 - **Register / re-register:** double-click `code\schedule_tonight.bat` (it runs
   `schedule_litter_robot.ps1` for you). It will ask for administrator rights and your
   Windows password — the password lets the task run *whether or not you're logged on*.
-  Re-run this any time you move files, so the task picks up the current
-  `code\litter_robot_v1.py` path.
+  Re-run this any time you move the project, so the task picks up the new location.
+- **Project location:** the task auto-detects the project folder from the script's own
+  location, so it works wherever you keep the repo — no editing required. To register
+  against a copy in a different folder, pass `-WorkDir` (run it from a terminal rather
+  than double-clicking):
+
+  ```powershell
+  code\schedule_tonight.bat -WorkDir "D:\path\to\Litter-Robot-Dashboard"
+  ```
+- **Virtual environment:** the task runs the project's `.venv\Scripts\python.exe`, so
+  create the virtual environment on that machine first (see **Setup**). The registration
+  script warns if it can't find it.
 - **Schedule:** the task `LitterRobotHourly` runs once an hour, indefinitely, around the clock.
 - **Output:** the task passes `--log-dir ...\live_logs`, so logs land in `live_logs/`.
 - **Credentials & config:** because the task runs on its own (and may run under a
