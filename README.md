@@ -13,16 +13,17 @@ every visit is recorded in the cloud, there's a surprising amount you can learn 
 your cats from it — how often they go, how much they weigh, and whether anything looks
 off.
 
-The dashboard surfaces two things at a glance. First, the real-time **status** of
+The dashboards surface a few things at a glance. First, the real-time **status** of
 each robot — whether it's online, the current litter level, how full the waste
 drawer is, cycle counts, and any faults. Second, the cats' **usage and health
 trends** over time — visit frequency, cat detections, and recorded weights — drawn
 from each robot's activity history. Watching weight and bathroom habits over time can
 be an early hint that something's wrong, which is the real reason I started logging
-all of this.
+all of this. Third, the health of the **collection job** itself, so I can tell at a
+glance that the data is still flowing.
 
 I run two Litter-Robot 4 units (**LR4-1** and **LR4-2**), and the data behind the
-dashboard comes from the Whisker API via the included monitor script.
+dashboards comes from the Whisker API via the included monitor script.
 
 ## How it works
 
@@ -33,11 +34,17 @@ The whole thing is a small pipeline, and you can follow it end to end:
    finds to CSV files.
 2. **Schedule** — a Windows scheduled task runs that script automatically on a timer,
    so the history builds up on its own without anyone remembering to run it.
-3. **Visualize** — a self-contained HTML dashboard reads that history and turns it
-   into easy-to-read cards and charts you can open in any browser.
+3. **Visualize** — on each run the script rebuilds three self-contained HTML
+   dashboards (litter status, cat health, and batch-run monitoring) from that
+   history. Each is a single file you can open in any browser, linked by a shared
+   nav bar at the top.
+4. **Deploy (optional)** — if the AWS environment variables are set, the script
+   uploads all three dashboards to S3 and invalidates the CloudFront cache so the
+   live site refreshes within seconds. If they aren't set, it simply notes that and
+   keeps going.
 
-Nothing here needs a server or a database — it's just a script, some CSV files, and an
-HTML page. That keeps it easy to run, back up, and share.
+Nothing here needs a server or a database — it's just a script, some CSV files, and
+HTML pages. That keeps it easy to run, back up, and share.
 
 ## The robots
 
@@ -49,17 +56,28 @@ names. This table is the key for matching them up:
 | **LR4-1**    | Vegas Robot 1        |
 | **LR4-2**    | Vegas Litter Robot 2 |
 
-## Dashboard
+## Dashboards
 
+<!-- Screenshot goes here. To add it: open dashboards/litter_robot_dashboard.html
+     in a browser, capture it, save it as dashboards/dashboard_screenshot.png, then
+     uncomment the line below.
 ![Litter Robot dashboard](dashboards/dashboard_screenshot.png)
+-->
 
-<!-- To add the screenshot: open dashboards/litter_robot_dashboard.html in a
-     browser, capture it, save as dashboards/dashboard_screenshot.png, and it
-     will render here. -->
+There are three dashboards, linked by a nav bar at the top of each (and each has a
+light/dark toggle):
 
-To see the live dashboard, just open `dashboards/litter_robot_dashboard.html` in any
-web browser — no install or internet connection required, since the data is baked
-right into the file.
+- **Litter Robots** (`litter_robot_dashboard.html`) — real-time status of both robots
+  plus cat usage and weight trends.
+- **Cat Health** (`cat_health_dashboard.html`) — a per-cat wellness view (weight
+  trend, litter frequency, and a derived health score) with a 14 / 30 / Max range
+  selector.
+- **Batch Runs** (`batch_run_dashboard.html`) — a monitor for the collection job
+  itself: the latest run, how fresh it is, and a sortable table of every run with
+  duration color-coded against the average.
+
+To see them, just open any file in `dashboards/` in a web browser — no install or
+internet connection required, since the data is baked right into each file.
 
 ## Folder layout
 
@@ -67,8 +85,8 @@ Everything is sorted into four folders so it's easy to find what you need:
 
 ```
 .
-├── code/                scripts: monitor (litter_robot_v1.py) + Windows scheduling
-├── dashboards/          generated HTML dashboards
+├── code/                scripts: monitor (litter_robot_v1.py) + Windows scheduling + AWS deploy
+├── dashboards/          generated HTML dashboards + their templates
 ├── live_logs/           current monthly logs the monitor appends to each run
 └── historical_exports/  older raw activity CSVs exported from the Whisker app
 ```
@@ -88,9 +106,9 @@ before the script existed. The scheduled task runs
   connects to the Whisker account and pulls down just about everything the robots
   know: full device status and diagnostics, the complete activity archive, usage
   insights (including cat detections), the sleep schedule, firmware status, and each
-  pet's profile and weight history. It's built to run over and over (say, every few
-  hours): each run appends to the monthly CSV logs and quietly skips anything it has
-  already recorded, so you never get duplicate rows no matter how often it runs.
+  pet's profile and weight history. It's built to run over and over (say, every
+  hour): each run appends to the monthly CSV logs and quietly skips anything it has
+  already recorded, then rebuilds and (optionally) deploys all three dashboards.
 
 ### Scheduling, Windows (`code/`)
 
@@ -103,13 +121,23 @@ double-click them.
   so you can confirm it's actually running.
 - **`uninstall_schedule.bat`** — removes the scheduled task.
 - **`setup_github.ps1`** — one-time helper that sets up git and pushes to GitHub.
+- **`s3_deploy_check.py`** — standalone diagnostic that tries to upload all three
+  dashboards and prints the exact result/error per file. Run:
+  `python code/s3_deploy_check.py --list`.
+- **`aws_dashboard_policy.json`** — the IAM policy the deploy credentials need (kept
+  out of git via `.gitignore` because it contains your AWS account ID).
 
 ### Dashboards (`dashboards/`)
 
-- **`litter_robot_dashboard.html`** — the main dashboard you'll open day to day.
-- **`cat_health_dashboard.html`** — a per-cat view focused on weight and health.
-- **`litter_robot_dashboard_template.html`** — the empty template the dashboard is
-  built from; handy if you want to restyle or rebuild it.
+The script regenerates all three dashboards on every run, so don't hand-edit the
+output HTML — edit the matching `*_template.html` instead (the script fills in the
+data placeholders).
+
+- **`litter_robot_dashboard.html`** — robot status + cat usage/weight trends.
+- **`cat_health_dashboard.html`** — per-cat wellness view with a 14 / 30 / Max range selector.
+- **`batch_run_dashboard.html`** — collection-job run monitor (latest run + sortable history).
+- **`*_template.html`** — the three matching templates the dashboards are built from;
+  edit these to restyle or rebuild.
 
 ## CSV reference
 
@@ -151,7 +179,8 @@ weigh-in, and clean cycle, one row per event.
 | `Value` | Associated value (e.g. weight), or `-` if none |
 
 **`litter_robot_applog.csv`** — a simple run journal: one row each time the script
-runs, so you can confirm it's working and see how long it took.
+runs, so you can confirm it's working and see how long it took. This file is what the
+**Batch Runs** dashboard is built from.
 
 | Column | Meaning |
 |--------|---------|
@@ -175,10 +204,11 @@ robot name.
 
 ## Setup
 
-You only need to do this once. First, install the one library the script depends on:
+You only need to do this once. The script auto-installs its two dependencies
+(`pylitterbot` and `boto3`) on first run, or you can install them yourself:
 
 ```bash
-pip install pylitterbot
+pip install pylitterbot boto3
 ```
 
 Then give the script your Whisker login. It reads these from environment variables so
@@ -207,7 +237,8 @@ report and appends any new data to the logs:
 ```bash
 python code/litter_robot_v1.py --log-dir live_logs     # run + append to live_logs/
 python code/litter_robot_v1.py --log-dir "C:\path"     # write logs elsewhere
-python code/litter_robot_v1.py --log-dir live_logs > report.txt   # also save the console report
+python code/litter_robot_v1.py --log-dir live_logs --no-deploy   # skip the S3/CloudFront upload
+python code/litter_robot_v1.py --log-dir live_logs > report.txt  # also save the console report
 ```
 
 If you skip `--log-dir`, the script writes the logs next to itself (inside `code/`),
@@ -225,23 +256,95 @@ own so the history fills in around the clock. On Windows that's a scheduled task
   `code\litter_robot_v1.py` path.
 - **Schedule:** the task `LitterRobotHourly` runs once an hour, indefinitely, around the clock.
 - **Output:** the task passes `--log-dir ...\live_logs`, so logs land in `live_logs/`.
-- **Credentials:** because the task runs on its own (and may run under a separate
-  local account), the per-session variables from Setup aren't enough — set them as
-  **machine-level** variables so the task can always read them. In an elevated
-  PowerShell (Run as administrator):
+- **Credentials & config:** because the task runs on its own (and may run under a
+  separate local account), the per-session variables aren't enough — set everything
+  it needs as **machine-level** variables. In an elevated PowerShell (Run as
+  administrator):
 
   ```powershell
   [Environment]::SetEnvironmentVariable("WHISKER_USERNAME","you@example.com","Machine")
   [Environment]::SetEnvironmentVariable("WHISKER_PASSWORD","your-password","Machine")
   ```
 
-  Then reboot (or restart) so Task Scheduler picks up the new machine environment.
+  Then reboot (or restart) so Task Scheduler picks up the new machine environment. To
+  also deploy from the scheduled task, set the AWS variables described below the same
+  way.
 - **Check status:** double-click `code\check_schedule.bat` to confirm it's running.
 - **Remove:** double-click `code\uninstall_schedule.bat`.
 
+## Deploying to S3 + CloudFront
+
+On every run, after rebuilding the three dashboards, the script uploads all of them
+to S3 and invalidates the CloudFront cache so the live site refreshes within seconds.
+Skip it for a local run with `--no-deploy`.
+
+The deploy **target** is read from environment variables, so nothing about your AWS
+setup is hard-coded in the repo. If they aren't set, the script prints a note and
+keeps going — it never errors out.
+
+| Variable | Purpose | Required? |
+|----------|---------|-----------|
+| `LITTERBOT_S3_BUCKET` | S3 bucket to upload to | Yes (no upload without it) |
+| `LITTERBOT_CLOUDFRONT_DISTRIBUTION_ID` | CloudFront distribution to invalidate | Optional (uploads still happen; just no cache invalidation) |
+| `LITTERBOT_AWS_REGION` | AWS region | Optional (defaults to `us-east-1`) |
+
+Set them once, machine-wide so the scheduled task sees them, in an elevated
+PowerShell:
+
+```powershell
+[Environment]::SetEnvironmentVariable("LITTERBOT_S3_BUCKET","your-bucket","Machine")
+[Environment]::SetEnvironmentVariable("LITTERBOT_CLOUDFRONT_DISTRIBUTION_ID","YOUR_DIST_ID","Machine")
+[Environment]::SetEnvironmentVariable("LITTERBOT_AWS_REGION","us-east-1","Machine")
+```
+
+All three dashboards are uploaded under these keys (in your bucket):
+`litter_robot_dashboard.html`, `cat_health_dashboard.html`, `batch_run_dashboard.html`.
+Each upload is independent, so one failure never blocks the others, and the script
+prints an `N/3 succeeded` summary.
+
+**AWS credentials** are separate from the config above — `boto3` reads them from the
+standard chain (env vars, `~/.aws/credentials`, or an IAM role). For the unattended
+scheduled task, set them machine-wide too:
+
+```powershell
+[Environment]::SetEnvironmentVariable("AWS_ACCESS_KEY_ID","<your-key-id>","Machine")
+[Environment]::SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY","<your-secret>","Machine")
+```
+
+**IAM permissions.** The credentials need `s3:PutObject` on the whole bucket prefix
+(so all three files can upload) plus `cloudfront:CreateInvalidation`. A ready-to-edit
+policy lives in `code/aws_dashboard_policy.json` (gitignored). Replace the
+placeholders with your bucket, account ID, and distribution ID:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    { "Effect": "Allow", "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::YOUR_BUCKET/*" },
+    { "Effect": "Allow", "Action": "cloudfront:CreateInvalidation",
+      "Resource": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_DIST_ID" }
+  ]
+}
+```
+
+If a deploy isn't landing, run `python code/s3_deploy_check.py --list` — it prints the
+AWS identity in use and the exact per-file upload result.
+
 ## Security
 
-Credentials are read from environment variables only — there are no secrets in this
-repository. Please don't commit passwords, tokens, or API keys: keep them in the
-environment variables described above. The `.gitignore` already excludes common
-secret and `.env` files as a safety net.
+Credentials and deploy configuration are read from environment variables only — there
+are no passwords, keys, or AWS account identifiers in the tracked code. Please don't
+commit passwords, tokens, or API keys; keep them in the environment variables
+described above.
+
+`.gitignore` is set up to keep sensitive and scratch material out of the repo,
+including `.env` / secrets files, `code/aws_dashboard_policy.json` (contains your AWS
+account ID), and the `_to_delete/` scratch folder plus `*litter_robot_code_output*.txt`
+console dumps (which can contain account IDs, pet profile IDs, presigned URLs, and
+device serials).
+
+One thing to decide before publishing: device **serial numbers** also appear in
+`live_logs/litter_robot_logs_*.csv`. They aren't secrets, but if you'd rather not
+publish them, scrub the `serial` column or gitignore the log/export folders before
+pushing.

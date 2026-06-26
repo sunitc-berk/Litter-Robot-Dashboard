@@ -64,11 +64,12 @@ INSIGHT_DAYS = 30
 WEIGHT_HISTORY_LIMIT = 100
 
 # Third-party packages this script needs: (import name, pip install spec)
-REQUIRED_PACKAGES = [("pylitterbot", "pylitterbot")]
+REQUIRED_PACKAGES = [("pylitterbot", "pylitterbot"), ("boto3", "boto3")]
 
 # Directory where the CSV logs are written. Set in run() from --log-dir, and
 # defaults to the folder that contains this script.
 LOG_DIR = "."
+NO_DEPLOY = False  # set from --no-deploy in run(); read inside main()
 
 # CSV schemas
 STATUS_FIELDS = [
@@ -376,6 +377,33 @@ def _append_applog(log_dir: str, start: datetime, status: str, error: str = "") 
 DASHBOARD_TEMPLATE = "litter_robot_dashboard_template.html"
 DASHBOARD_OUTPUT = "litter_robot_dashboard.html"
 
+# ── S3 / CloudFront deployment ───────────────────────────────────────────────
+# On every run the freshly generated dashboard is uploaded to S3 and the
+# CloudFront cache is invalidated (disable with --no-deploy). AWS credentials
+# come from the standard boto3 chain (env vars, ~/.aws/credentials, or an IAM
+# role) — never hard-coded here.
+# Deploy target (bucket + distribution) comes from environment variables so it is
+# never hard-coded. If either is unset, the deploy is skipped with a note and the
+# run continues normally. Example (Windows):
+#   set LITTERBOT_S3_BUCKET=litterrobot.sunit.dev
+#   set LITTERBOT_CLOUDFRONT_DISTRIBUTION_ID=E3VHA5YY4XMZ70
+#   set LITTERBOT_AWS_REGION=us-east-1            (optional; defaults to us-east-1)
+ENV_S3_BUCKET = "LITTERBOT_S3_BUCKET"
+ENV_CLOUDFRONT_DISTRIBUTION_ID = "LITTERBOT_CLOUDFRONT_DISTRIBUTION_ID"
+ENV_AWS_REGION = "LITTERBOT_AWS_REGION"
+AWS_REGION_DEFAULT = "us-east-1"
+
+S3_KEY = "litter_robot_dashboard.html"
+
+# Two more dashboards are generated from the same logs and deployed alongside the
+# litter dashboard (same bucket / distribution).
+CAT_TEMPLATE = "cat_health_dashboard_template.html"
+CAT_OUTPUT = "cat_health_dashboard.html"
+BATCH_TEMPLATE = "batch_run_dashboard_template.html"
+BATCH_OUTPUT = "batch_run_dashboard.html"
+S3_KEY_CAT = "cat_health_dashboard.html"
+S3_KEY_BATCH = "batch_run_dashboard.html"
+
 # Cat profiles (birthday/sex/note are stable and not reliably exposed by the
 # API, so they live here). Order is preserved in the dashboard's cat cards.
 CAT_PROFILES = [
@@ -517,12 +545,35 @@ def _latest_status(log_dir: str):
     return latest
 
 
+def _resolve_dashboard_paths(log_dir: str):
+    """Locate the dashboard template and decide where to write the output.
+
+    Works with both the flat layout (template sits in log_dir) and the
+    code/ + dashboards/ layout (template in ../dashboards relative to this
+    script). The generated HTML is written next to whichever template is found,
+    so logs can live in live_logs/ while the dashboard lives in dashboards/.
+    """
+    candidates = [Path(log_dir)]
+    try:
+        script_dir = Path(__file__).resolve().parent
+        candidates.append(script_dir.parent / "dashboards")
+        candidates.append(script_dir)
+    except NameError:
+        pass
+    candidates.append(Path.cwd())
+    for d in candidates:
+        tpl = d / DASHBOARD_TEMPLATE
+        if tpl.exists():
+            return tpl, d / DASHBOARD_OUTPUT
+    return None, None
+
+
 def generate_dashboard(log_dir: str):
     """Rebuild litter_robot_dashboard.html from the CSV logs (deletes the old
     file first). Returns a small info dict, or None if the template is missing."""
-    tpl_path = Path(log_dir) / DASHBOARD_TEMPLATE
-    if not tpl_path.exists():
-        print(f"  Template not found: {tpl_path} — skipping dashboard generation.")
+    tpl_path, out_path = _resolve_dashboard_paths(log_dir)
+    if tpl_path is None:
+        print(f"  Template '{DASHBOARD_TEMPLATE}' not found (looked in {log_dir} and dashboards/) — skipping dashboard generation.")
         return None
     template = tpl_path.read_text(encoding="utf-8")
 
@@ -629,7 +680,6 @@ def generate_dashboard(log_dir: str):
             .replace("__ONLINE__", online_str)
             .replace("__SCOOPS__", scoops_str))
 
-    out_path = Path(log_dir) / DASHBOARD_OUTPUT
     if out_path.exists():
         out_path.unlink()  # delete the old html, then write a fresh one
     out_path.write_text(html, encoding="utf-8")
@@ -639,7 +689,115 @@ def generate_dashboard(log_dir: str):
         "visits": len(visits),
         "date_min": cycle_dates[0].strftime("%Y-%m-%d") if cycle_dates else "n/a",
         "date_max": cycle_dates[-1].strftime("%Y-%m-%d") if cycle_dates else "n/a",
+        "visits_data": visits,
+        "cats_data": cats,
+        "now_iso": now_iso,
     }
+
+
+def _resolve_dash(log_dir, tpl_name, out_name):
+    """Locate a dashboard template (same search order as the litter dashboard)
+    and return (template_path, output_path), or (None, None) if not found."""
+    candidates = [Path(log_dir)]
+    try:
+        script_dir = Path(__file__).resolve().parent
+        candidates.append(script_dir.parent / "dashboards")
+        candidates.append(script_dir)
+    except NameError:
+        pass
+    candidates.append(Path.cwd())
+    for d in candidates:
+        tpl = d / tpl_name
+        if tpl.exists():
+            return tpl, d / out_name
+    return None, None
+
+
+def _compute_visits_cats(log_dir):
+    """Build the visit list and cat profiles from the CSV logs, standalone, so the
+    cat health dashboard does not depend on the litter dashboard running first."""
+    events = _gather_dashboard_events(log_dir)
+    visits, latest_w = [], {}
+    for rb, ts, a, v in events:
+        if not _is_weight(a):
+            continue
+        w = _parse_weight(v)
+        if w is None:
+            continue
+        cat = _classify_cat(w)
+        visits.append({"dt": ts.strftime("%Y-%m-%dT%H:%M"), "weight": round(w, 1),
+                       "cat": cat, "robot": rb})
+        if cat not in latest_w or ts > latest_w[cat][0]:
+            latest_w[cat] = (ts, w)
+    visits.sort(key=lambda e: e["dt"], reverse=True)
+
+    def fmt_last(ts):
+        h = ((ts.hour + 11) % 12) + 1
+        return (f"{ts.strftime('%b')} {ts.day}, {h}:{ts.minute:02d} {ts.strftime('%p')}",
+                ts.strftime("%Y-%m-%dT%H:%M"))
+
+    cats = []
+    for name, prof in CAT_PROFILES:
+        cur, last, last_iso = "", "", ""
+        if name in latest_w:
+            ts, w = latest_w[name]
+            cur = round(w, 2)
+            last, last_iso = fmt_last(ts)
+        cats.append({"name": name, "sex": prof["sex"], "cur": cur, "birth": prof["birth"],
+                     "last": last, "lastISO": last_iso, "note": prof["note"]})
+    now_iso = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    return visits, cats, now_iso
+
+
+def generate_cat_health_dashboard(log_dir):
+    """Rebuild cat_health_dashboard.html from the CSV logs. Independent of the
+    litter dashboard. Returns an info dict, or None if the template is missing."""
+    tpl_path, out_path = _resolve_dash(log_dir, CAT_TEMPLATE, CAT_OUTPUT)
+    if tpl_path is None:
+        print(f"  WARNING: template '{CAT_TEMPLATE}' not found - cat health dashboard NOT built.")
+        return None
+    visits, cats, now_iso = _compute_visits_cats(log_dir)
+    template = tpl_path.read_text(encoding="utf-8")
+    html = (template
+            .replace("__VIS_JSON__", json.dumps(visits))
+            .replace("__CATS_JSON__", json.dumps(cats))
+            .replace("__NOW_ISO__", now_iso))
+    if out_path.exists():
+        out_path.unlink()
+    out_path.write_text(html, encoding="utf-8")
+    return {"output": str(out_path), "visits": len(visits)}
+
+
+def generate_batch_dashboard(log_dir):
+    """Rebuild batch_run_dashboard.html from litter_robot_applog.csv. Returns an
+    info dict, or None if the template is missing."""
+    tpl_path, out_path = _resolve_dash(log_dir, BATCH_TEMPLATE, BATCH_OUTPUT)
+    if tpl_path is None:
+        print(f"  WARNING: template '{BATCH_TEMPLATE}' not found - batch dashboard NOT built.")
+        return None
+    template = tpl_path.read_text(encoding="utf-8")
+
+    runs = []
+    applog = Path(log_dir) / APPLOG_FILE
+    if applog.exists():
+        with open(applog, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                t = (r.get("run_time") or "").strip()
+                if not t:
+                    continue
+                try:
+                    dur = round(float(r.get("duration_sec") or 0), 1)
+                except ValueError:
+                    dur = 0.0
+                runs.append({"t": t, "dur": dur,
+                             "status": (r.get("status") or "").strip() or "ok",
+                             "error": (r.get("error") or "").strip()})
+
+    html = template.replace("__RUNS_JSON__", json.dumps(runs, separators=(",", ":")))
+    if out_path.exists():
+        out_path.unlink()
+    out_path.write_text(html, encoding="utf-8")
+    return {"output": str(out_path), "runs": len(runs)}
 
 
 async def fetch_cat_detections(robot, days: int):
@@ -919,14 +1077,40 @@ async def main() -> None:
 
         # ── Rebuild the HTML dashboard from the CSV logs ──────────────────────
         section("📈  DASHBOARD")
+        outputs = []
         try:
             info = generate_dashboard(LOG_DIR)
             if info:
                 print(f"  Rebuilt: {info['output']}")
                 print(f"  History : {info['date_min']} → {info['date_max']}  ·  {info['visits']:,} visits plotted")
                 print(f"  Source  : CSV logs + historical exports (txt report no longer used)")
+                outputs.append((info["output"], S3_KEY))
         except Exception as exc:
-            print(f"  Could not generate dashboard: {exc}")
+            print(f"  Could not generate litter dashboard: {exc}")
+
+        # Cat health - generated independently of the litter dashboard above.
+        try:
+            cinfo = generate_cat_health_dashboard(LOG_DIR)
+            if cinfo:
+                print(f"  Rebuilt: {cinfo['output']}  ({cinfo['visits']:,} visits)")
+                outputs.append((cinfo["output"], S3_KEY_CAT))
+        except Exception as exc:
+            print(f"  Could not generate cat health dashboard: {exc}")
+
+        # Batch runs - generated independently.
+        try:
+            binfo = generate_batch_dashboard(LOG_DIR)
+            if binfo:
+                print(f"  Rebuilt: {binfo['output']}  ({binfo['runs']:,} runs logged)")
+                outputs.append((binfo["output"], S3_KEY_BATCH))
+        except Exception as exc:
+            print(f"  Could not generate batch dashboard: {exc}")
+
+        if len(outputs) < 3:
+            print(f"  WARNING: only {len(outputs)}/3 dashboards were generated; "
+                  f"missing ones will not be uploaded (see messages above).")
+        if outputs and not NO_DEPLOY:
+            deploy_dashboards(outputs)
 
         print(f"\n{'─' * 60}")
         print(f"  Report generated: {fmt_dt(datetime.now())}")
@@ -950,12 +1134,117 @@ def parse_args(argv=None) -> argparse.Namespace:
         default=None,
         help="Directory for the CSV logs (default: the folder containing this script).",
     )
+    parser.add_argument(
+        "--no-deploy",
+        action="store_true",
+        help="Skip uploading the dashboard to S3 and invalidating CloudFront.",
+    )
     return parser.parse_args(argv)
 
 
+def deploy_dashboards(items):
+    """Upload several dashboards to S3, then issue ONE CloudFront invalidation that
+    covers everything uploaded. `items` is a list of (local_path, s3_key).
+
+    The deploy target is read from environment variables: LITTERBOT_S3_BUCKET and
+    LITTERBOT_CLOUDFRONT_DISTRIBUTION_ID (region from LITTERBOT_AWS_REGION,
+    default us-east-1). If those are not set, the run notes it and skips the
+    upload/invalidation instead of erroring. Each upload is isolated so one
+    failure never blocks the others. Never raises."""
+    bucket = os.environ.get(ENV_S3_BUCKET)
+    distribution = os.environ.get(ENV_CLOUDFRONT_DISTRIBUTION_ID)
+    region = os.environ.get(ENV_AWS_REGION, AWS_REGION_DEFAULT)
+
+    if not bucket:
+        print(f"  Env var {ENV_S3_BUCKET} not set - skipping S3 upload "
+              f"(dashboards were still generated locally).")
+        return None
+
+    try:
+        import boto3
+    except ImportError:
+        print("  boto3 not available - skipping S3/CloudFront deploy.")
+        return None
+
+    try:
+        s3 = boto3.client("s3", region_name=region)
+    except Exception as exc:
+        print(f"  Could not create S3 client: {type(exc).__name__}: {exc}")
+        return None
+
+    uploaded, failed = [], []
+    for path, key in items:
+        p = Path(path)
+        if not p.exists():
+            print(f"  Skip (missing file): {path}")
+            failed.append(key)
+            continue
+        try:
+            s3.upload_file(
+                str(p), bucket, key,
+                ExtraArgs={"ContentType": "text/html; charset=utf-8",
+                           "CacheControl": "no-cache"},
+            )
+            print(f"  Uploaded -> s3://{bucket}/{key}")
+            uploaded.append(key)
+        except Exception as exc:
+            print(f"  Upload FAILED for {key}: {type(exc).__name__}: {exc}")
+            failed.append(key)
+
+    print(f"  S3 upload summary: {len(uploaded)}/{len(items)} succeeded"
+          + (f"  (failed: {', '.join(failed)})" if failed else ""))
+    if not uploaded:
+        return None
+
+    if not distribution:
+        print(f"  Env var {ENV_CLOUDFRONT_DISTRIBUTION_ID} not set - "
+              f"skipping CloudFront cache invalidation.")
+        return {"bucket": bucket, "keys": uploaded, "failed": failed, "invalidation": None}
+
+    inv_id = None
+    try:
+        cf = boto3.client("cloudfront")
+        caller_ref = datetime.now().strftime("litterbot-%Y%m%d%H%M%S%f")
+        paths = ["/" + k for k in uploaded]
+        resp = cf.create_invalidation(
+            DistributionId=distribution,
+            InvalidationBatch={
+                "Paths": {"Quantity": len(paths), "Items": paths},
+                "CallerReference": caller_ref,
+            },
+        )
+        inv_id = resp["Invalidation"]["Id"]
+        print(f"  CloudFront invalidation created: {inv_id}  ({', '.join(paths)})")
+    except Exception as exc:
+        print(f"  CloudFront invalidation failed: {type(exc).__name__}: {exc}")
+    return {"bucket": bucket, "keys": uploaded, "failed": failed, "invalidation": inv_id}
+
+
+def _force_utf8_output() -> None:
+    """Make stdout/stderr UTF-8 so emoji and other non-ASCII characters (section
+    headers, pet names, weights, ...) never raise 'UnicodeEncodeError: charmap
+    codec can't encode ...' on Windows' legacy console code page (cp1252). Falls
+    back silently if a stream cannot be reconfigured."""
+    import io
+    for name in ("stdout", "stderr"):
+        stream = getattr(sys, name, None)
+        if stream is None:
+            continue
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            try:  # pre-3.7 streams: wrap the underlying buffer
+                setattr(sys, name, io.TextIOWrapper(
+                    stream.buffer, encoding="utf-8", errors="replace", line_buffering=True))
+            except Exception:
+                pass
+
+
 def run() -> None:
-    global LOG_DIR
+    global LOG_DIR, NO_DEPLOY
+    _force_utf8_output()
     args = parse_args()
+    NO_DEPLOY = args.no_deploy
 
     # Resolve where logs are written.
     if args.log_dir:

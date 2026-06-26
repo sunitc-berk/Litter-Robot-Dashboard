@@ -131,6 +131,57 @@ h2{font-size:14.9px;text-transform:uppercase;letter-spacing:1.3px;color:var(--mu
 .frobot{font-size:12.1px;color:var(--muted)}
 .chartbox{position:relative;height:300px}
 .foot{color:var(--muted);font-size:13.8px;text-align:center;margin-top:42px}
+
+/* ===== RESPONSIVE-MOBILE-V1 : desktop (>1024px) unchanged; adds iPad + iPhone ===== */
+/* iPad landscape: 3-up card grids become 2-up */
+@media (min-width:881px) and (max-width:1024px){
+  .cards3{grid-template-columns:repeat(2,1fr)}
+}
+/* iPad portrait / small tablets: keep two columns instead of stacking to one */
+@media (min-width:700px) and (max-width:880px){
+  .cards2,.cards3{grid-template-columns:repeat(2,1fr)}
+}
+/* Tablets generally: trim padding + chart height a touch */
+@media (max-width:880px){
+  body{padding:20px 18px 50px}
+  .chartbox{height:280px}
+}
+/* iPad portrait & large phones */
+@media (max-width:768px){
+  body{padding:18px 16px 48px}
+  h1{font-size:24px}
+  h1 .robo{font-size:27px}
+  .chartbox{height:260px}
+}
+/* Phones (iPhone) */
+@media (max-width:480px){
+  body{padding:14px 12px 40px}
+  .topbar{flex-wrap:wrap;gap:10px}
+  .ctrls{margin-left:0;width:100%;justify-content:flex-start;flex-wrap:wrap}
+  .toggle{margin-left:0}
+  h1{font-size:21px;letter-spacing:-.2px}
+  h1 .robo{font-size:24px}
+  .sub{font-size:13.5px}
+  h2{margin:18px 0 11px}
+  .grid{gap:13px}
+  .card{padding:14px;border-radius:12px}
+  .strip .s{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--line);justify-content:flex-start}
+  .strip .s:last-child{border-bottom:none}
+  .strip .v{font-size:21px}
+  .robot-ico{width:132px;margin:0 auto}
+  .tiles{grid-template-columns:1fr 1fr}
+  .cat-big{font-size:23px}
+  .chartbox{height:230px}
+  .feed{max-height:340px}
+  .seg button{padding:5px 10px;font-size:13.5px}
+  .lbmeta{width:auto}
+}
+/* Small phones (iPhone SE / mini) */
+@media (max-width:360px){
+  .strip .v{font-size:19px}
+  .t .v{font-size:18px}
+  .seg button{padding:4px 8px;font-size:13px}
+}
 </style>
 
 <style>
@@ -170,10 +221,24 @@ h2{font-size:14.9px;text-transform:uppercase;letter-spacing:1.3px;color:var(--mu
 .tlaxis span:last-child{flex:0}
 .tllegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:13.8px;color:var(--muted)}
 .tllegend i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:middle}
+
+/* ===== global nav ===== */
+.gnav{display:flex;gap:6px;align-items:center;margin-bottom:18px;flex-wrap:wrap;font-size:13px}
+.gnav .brand{font-weight:800;letter-spacing:-.2px;margin-right:8px;display:flex;align-items:center;gap:6px}
+.gnav a{text-decoration:none;color:var(--muted);padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);transition:.15s;white-space:nowrap}
+.gnav a:hover{color:var(--txt);border-color:var(--muted)}
+.gnav a.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+[data-theme="dark"] .gnav a.active{background:var(--accent);color:#06210f;border-color:var(--accent)}
 </style>
 </head>
 <body data-theme="light">
 <div class="wrap">
+<nav class="gnav">
+  <span class="brand">&#129446; Litter-Robot</span>
+  <a href="litter_robot_dashboard.html" class="active">Litter Robots</a>
+  <a href="cat_health_dashboard.html">Cat Health</a>
+  <a href="batch_run_dashboard.html">Batch Runs</a>
+</nav>
 <div class="topbar">
   <div>
     <h1><span class="robo">🤖</span> Litter-Robot Dashboard</h1>
